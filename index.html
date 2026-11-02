@@ -133,6 +133,11 @@ section { padding-top: 84px; }
 .vol-card { position: relative; border: 2px solid var(--accent); }
 .vol-stamp { position: absolute; top: 18px; right: 18px; width: 92px; height: 92px; border-radius: 50%; border: 2px dashed var(--accent); color: var(--accent); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; line-height: 1.25; transform: rotate(-12deg); background: var(--surface); }
 
+.win-wrap { margin: 8px 0 0; display: flex; justify-content: flex-end; }
+.win-stamp { width: 124px; height: 124px; border-radius: 50%; background: var(--accent); color: var(--on-accent); display: flex; flex-direction: column; align-items: center; justify-content: center; transform: rotate(10deg); box-shadow: 0 0 0 6px var(--surface), 0 0 0 7px var(--accent); }
+.win-stamp .ws-big { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 30px; line-height: 1; }
+.win-stamp .ws-small { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; line-height: 1.25; text-align: center; margin-top: 4px; }
+
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
@@ -429,6 +434,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
           <li>Short-form video editing and creative direction.</li>
           <li>Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</li>
         </ul>
+        <div class="win-wrap"><div class="win-stamp" aria-hidden="true"><span class="ws-big">2 wks</span><span class="ws-small">to the<br>first win</span></div></div>
         <p class="result">570K+ audience, and the first win within two weeks.</p>
       </article>
       <article class="card reveal">
