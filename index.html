@@ -142,6 +142,17 @@ section { padding-block: 72px 0; }
 .fact ul { margin: 0; padding-left: 18px; }
 .fact .name { font-weight: 700; color: var(--fg); margin: 0; }
 
+/* Campaign gallery */
+.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.shot { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
+.shot img { display: block; width: 100%; height: auto; }
+.shot figcaption { padding: 16px 18px 20px; font-size: 14px; color: var(--muted); line-height: 1.5; }
+.shot figcaption strong { display: block; color: var(--fg); font-size: 15px; margin-bottom: 4px; }
+.award { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 28px; background: var(--lav); border-radius: 18px; padding: 24px; }
+.award img { width: 100%; height: auto; border-radius: 12px; display: block; }
+.award .label { margin-bottom: 8px; }
+.award-title { font-family: "Instrument Serif", Georgia, serif; font-size: 30px; line-height: 1.1; margin: 0 0 10px; color: var(--fg); text-wrap: balance; }
+
 /* Contact */
 .contact {
   margin-top: 80px; background: var(--mint); color: var(--fg); border-radius: 24px; padding: 48px 32px; margin-bottom: 48px;
@@ -160,12 +171,15 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
 @media (max-width: 860px) {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .work-grid, .facts { grid-template-columns: minmax(0, 1fr); }
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .award { grid-template-columns: minmax(0, 1fr); }
   .card.feature { grid-column: auto; }
   .timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 @media (max-width: 420px) {
   .hero { padding-block: 32px 40px; }
   .card { padding: 22px; }
+  .gallery { grid-template-columns: minmax(0, 1fr); }
   .contact { padding: 32px 22px; }
 }
 @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
@@ -259,6 +273,42 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         </ul>
         <p class="result">Grew 2K LinkedIn followers in one month.</p>
       </article>
+    </div>
+  </section>
+
+  <section id="campaigns" aria-labelledby="campaigns-title">
+    <p class="label">Campaign samples</p>
+    <h2 id="campaigns-title" class="section-title display">Social posts that <em>stop the scroll.</em></h2>
+    <div class="gallery">
+      <figure class="shot">
+        <img src="assets/popular-wheelers.jpg" alt="Popular Wheelers dealership ads for Nexa and Maruti Suzuki cars, showing offers and showroom details" loading="lazy" width="595" height="842">
+        <figcaption><strong>Popular Wheelers</strong> Automotive dealership ads for Nexa and Maruti Suzuki, built around offers and test drives.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/adert-social.jpg" alt="Adert Advertising social media carousel slides, including Why Digital Marketing and Did You Know" loading="lazy" width="595" height="842">
+        <figcaption><strong>Adert Advertising</strong> Carousel slides that explain digital marketing in simple, shareable pieces.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/indian-spice.jpg" alt="Food posts for Indian Spice restaurant, with menu photography and bold headlines" loading="lazy" width="595" height="842">
+        <figcaption><strong>Restaurant &amp; hospitality</strong> Menu and feature posts for Indian Spice, with bold food-first visuals.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/salesbuddy-why-sales.jpg" alt="Salesbuddy carousel cover reading Why Sales? 7 Reasons This Might Be Your Best Move" loading="lazy" width="1000" height="1000">
+        <figcaption><strong>Salesbuddy</strong> Carousel cover designed to make a sales career feel like a clear next step.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="assets/salesbuddy-sales-tools.jpg" alt="Salesbuddy infographic titled 10 Sales Tools Pros Use Daily" loading="lazy" width="667" height="1000">
+        <figcaption><strong>Salesbuddy</strong> Infographic that lists the tools working sales pros use every day.</figcaption>
+      </figure>
+    </div>
+
+    <div class="award">
+      <img src="assets/anjoy-award.jpg" alt="Anjoy restaurant accepting the Best Family Restaurant award in Vadodara at the Food Connoisseurs India Awards, Mumbai, February 2023" loading="lazy" width="462" height="278">
+      <div>
+        <p class="label">Recognition</p>
+        <p class="award-title">Best Family Restaurant, Luxury Dining, Vadodara</p>
+        <p class="meta">Food Connoisseurs India Awards, Mumbai, February 2023. Restaurant rebrand and social growth while at Adert Advertising &amp; Marketing.</p>
+      </div>
     </div>
   </section>
 
