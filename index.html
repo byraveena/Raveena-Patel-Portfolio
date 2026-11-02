@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raveena Patel | Brand &amp; Marketing Manager</title>
+<meta name="description" content="Raveena Patel, brand and digital marketing manager in Ottawa. Campaign work across social, video, and brand strategy.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap">
-<meta name="description" content="Raveena Patel, brand and digital marketing manager in Ottawa. Campaign work across social, video, and brand strategy.">
 <style>
-/* Layout: a clear hero with proof numbers, then case studies that lead with results and visuals,
-   then experience, skills, and contact. Palette and type follow the lavender and mint identity. */
+/* Light is the default for every visitor. Dark applies only after someone chooses it. */
 :root {
+  color-scheme: light;
   --bg: #f6f4fd;
   --surface: #ffffff;
   --fg: #1b1640;
@@ -21,14 +21,18 @@
   --mint: #b9f2cf;
   --lav: #e4e0fb;
   --line: #dcd8ef;
-  color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #14122a; --surface: #1e1b3c; --fg: #f1efff; --muted: #b0aacd;
-    --accent: #b9abff; --on-accent: #14122a; --mint: #1f4a3d; --lav: #2a2656; --line: #353162;
-    color-scheme: dark;
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #14122a;
+  --surface: #1e1b3c;
+  --fg: #f1efff;
+  --muted: #b0aacd;
+  --accent: #b9abff;
+  --on-accent: #14122a;
+  --mint: #1f4a3d;
+  --lav: #2a2656;
+  --line: #353162;
 }
 body {
   margin: 0;
@@ -48,9 +52,10 @@ em { font-style: italic; color: var(--accent); }
 /* Top bar */
 .topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 22px; }
 .brand { font-size: 24px; color: var(--fg); text-decoration: none; }
-.nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
 .nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
 .nav a:hover { color: var(--fg); }
+.theme-toggle { font: inherit; font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
 
 /* Hero */
 .hero { padding-block: 40px 52px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: end; }
@@ -69,6 +74,7 @@ em { font-style: italic; color: var(--accent); }
 /* Sections */
 section { padding-block: 64px 0; }
 .section-title { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin: 0 0 30px; }
+.intro { font-size: 18px; color: var(--muted); max-width: 60ch; margin: -14px 0 30px; }
 
 /* Case studies */
 .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
@@ -88,15 +94,40 @@ section { padding-block: 64px 0; }
 .case ul { margin: 0; padding-left: 18px; }
 .case li { margin-bottom: 6px; }
 .result { margin: auto 0 0; padding-top: 10px; font-weight: 700; color: var(--accent); font-size: 16px; border-top: 1px solid var(--line); }
-.placeholder-note { font-size: 14px; color: var(--muted); font-style: italic; margin: 0; }
 
-/* Experience */
-.timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.timeline li { display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 6px 28px; padding-block: 22px; border-bottom: 1px solid var(--line); }
-.when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.role { font-weight: 700; margin: 0; }
-.org { color: var(--accent); margin: 0 0 6px; font-size: 15px; font-weight: 600; }
-.timeline p.desc { margin: 0; color: var(--muted); font-size: 15px; }
+/* Swipe strip */
+.swipe-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-top: 44px; }
+.swipe-head p { margin: 0; font-size: 14px; color: var(--muted); }
+.counter { font-variant-numeric: tabular-nums; font-weight: 600; color: var(--fg); }
+.swipe { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 4px 2px 18px; margin-top: 14px; scrollbar-width: thin; }
+.swipe figure { margin: 0; flex: 0 0 min(300px, 78%); scroll-snap-align: start; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; }
+.swipe img { width: 100%; height: auto; }
+.swipe figcaption { padding: 12px 16px 16px; font-size: 14px; color: var(--muted); }
+.swipe figcaption strong { display: block; color: var(--fg); }
+
+/* Career path (numbered: a true sequence) */
+.path { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.path li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 18px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
+.path .n { font-family: "Instrument Serif", Georgia, serif; font-size: 40px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.path h3 { margin: 0 0 4px; font-size: 17px; }
+.path p { margin: 0; font-size: 15px; color: var(--muted); }
+
+/* Two-up: report card and passport */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+.report { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-width: 0; }
+.report h3, .passport h3 { margin: 0 0 14px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
+.report ul { list-style: none; margin: 0; padding: 0; }
+.report li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.report li:last-child { border-bottom: 0; }
+.grade { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--lav); color: var(--fg); }
+.grade.top { background: var(--accent); color: var(--on-accent); }
+.passport { background: var(--lav); border-radius: 22px; padding: 26px; min-width: 0; }
+.passport dl { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; gap: 12px; }
+.passport dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
+.passport dd { margin: 2px 0 0; font-size: 16px; font-weight: 600; }
+.stamps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.stamps span { font-size: 13px; padding: 6px 12px; border: 1.5px dashed var(--accent); color: var(--accent); border-radius: 8px; transform: rotate(-1.5deg); }
+.stamps span:nth-child(even) { transform: rotate(1.2deg); }
 
 /* Skills */
 .skills { display: flex; flex-wrap: wrap; gap: 10px; }
@@ -121,22 +152,24 @@ section { padding-block: 64px 0; }
 .contact a { color: #1b1640; font-weight: 700; overflow-wrap: anywhere; }
 .mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid #1b1640; background: transparent; color: #1b1640; cursor: pointer; }
 .copy-status { font-size: 14px; min-height: 1.4em; margin: 16px 0 0; }
-footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
+footer a { color: var(--muted); }
 
 /* Responsive */
 @media (max-width: 860px) {
   .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 24px; }
-  .cases, .facts { grid-template-columns: minmax(0, 1fr); }
+  .cases, .facts, .pair { grid-template-columns: minmax(0, 1fr); }
   .case.wide { grid-column: auto; }
-  .timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 @media (max-width: 420px) {
-  .case .body, .fact, .hero-proof { padding: 20px; }
+  .case .body, .fact, .report, .passport, .hero-proof { padding: 20px; }
   .contact { padding: 32px 20px; }
   .case .shots { grid-template-columns: minmax(0, 1fr); }
   .case .shots img { aspect-ratio: auto; height: auto; }
+  .path li { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 18px; }
+  .path .n { font-size: 32px; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
 </style>
 </head>
 <body>
@@ -145,9 +178,10 @@ footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
   <a class="brand display" href="#top">Raveena Patel</a>
   <nav class="nav" aria-label="Sections">
     <a href="#work">Work</a>
-    <a href="#experience">Experience</a>
+    <a href="#journey">Journey</a>
     <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
   </nav>
 </header>
 
@@ -157,7 +191,7 @@ footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
     <div>
       <p class="label">Marketing &amp; Brand Manager · Ottawa, ON</p>
       <h1 class="display">Great brands don&rsquo;t need to <em>shout.</em></h1>
-      <p class="role">Brand and digital marketing manager, content and social strategist.</p>
+      <p class="role">Hi, I&rsquo;m Raveena. I&rsquo;m a brand and digital marketing manager and content strategist.</p>
       <p class="lede">I build brands through storytelling and organic content on Instagram, YouTube, and TikTok. I start with the audience and the strategy, then build the content system that makes the brand easy to remember.</p>
       <div class="actions">
         <a class="btn solid" href="#work">See my work</a>
@@ -253,65 +287,94 @@ footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
       </article>
 
     </div>
+
+    <div class="swipe-head">
+      <p>More from the Salesbuddy carousels. Swipe to see them all.</p>
+      <p class="counter" id="swipe-count" aria-live="polite">1 / 2</p>
+    </div>
+    <div class="swipe" id="swipe" tabindex="0" aria-label="Salesbuddy carousel slides">
+      <figure>
+        <img src="assets/salesbuddy-why-sales.jpg" alt="Why Sales? 7 Reasons This Might Be Your Best Move" width="1000" height="1000">
+        <figcaption><strong>Slide 1</strong>Hook first: one clear promise on the cover.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/salesbuddy-sales-tools.jpg" alt="10 Sales Tools Pros Use Daily" width="667" height="1000">
+        <figcaption><strong>Slide 2</strong>Clear, scannable list with one idea per row.</figcaption>
+      </figure>
+    </div>
   </section>
 
-  <section id="experience" aria-labelledby="exp-title">
-    <p class="label">Experience</p>
-    <h2 id="exp-title" class="section-title display">Eight years of <em>building</em> brands.</h2>
-    <ol class="timeline">
+  <section id="journey" aria-labelledby="journey-title">
+    <p class="label">Journey</p>
+    <h2 id="journey-title" class="section-title display">Short, but <em>busy.</em></h2>
+    <ol class="path">
       <li>
-        <div class="when">Jun 2024 to Present · Ottawa, ON</div>
+        <span class="n">1</span>
         <div>
-          <p class="role">Esthetician &amp; Client Experience Specialist</p>
-          <p class="org">Caryl Baker Visage</p>
-          <p class="desc">Direct-to-consumer retail, product positioning, and the sales lifecycle. Turned product knowledge into clear, trust-building advice.</p>
+          <h3>Graphic designer and creative content lead, OurVadodara (2017 to 2020)</h3>
+          <p>Core creative team on a media platform that grew to 1M+ followers, with story-first content and infographics.</p>
         </div>
       </li>
       <li>
-        <div class="when">Jun 2025 to Nov 2025 · Ottawa, ON</div>
+        <span class="n">2</span>
         <div>
-          <p class="role">Brand Strategist, consulting project</p>
-          <p class="org">FenceScape</p>
-          <p class="desc">Market research, marketing budget plan, brand roadmap, and visual templates for a small business.</p>
+          <h3>Digital marketing manager, Adert Advertising &amp; Marketing (2020 to 2022)</h3>
+          <p>Led multi-client social strategy, supervised creative teams, and built campaigns for YouTube, Instagram, and dealership and restaurant clients.</p>
         </div>
       </li>
       <li>
-        <div class="when">Mar 2016 to Apr 2024 · Ontario, Canada</div>
+        <span class="n">3</span>
         <div>
-          <p class="role">Social Media &amp; Brand Growth Manager</p>
-          <p class="org">Algurutheme</p>
-          <p class="desc">Multi-platform growth across changing algorithms, from ideation through copy, visuals, and community.</p>
+          <h3>Digital marketing executive, Beverage Trade Network (2023)</h3>
+          <p>SEO-driven content and acquisition, plus a 20K+ LinkedIn community.</p>
         </div>
       </li>
       <li>
-        <div class="when">Feb 2023 to Nov 2023 · Hybrid</div>
+        <span class="n">4</span>
         <div>
-          <p class="role">Digital Marketing Executive</p>
-          <p class="org">Beverage Trade Network</p>
-          <p class="desc">SEO-driven content and acquisition that lifted qualified web traffic. Built a 20K+ LinkedIn community.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Feb 2020 to Feb 2022 · Vadodara, India</div>
-        <div>
-          <p class="role">Digital Marketing Manager</p>
-          <p class="org">Adert Advertising &amp; Marketing</p>
-          <p class="desc">Led multi-client social strategy and supervised creative teams. Averaged 100K+ views per anchor post. Tested creative to lower acquisition costs.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Jan 2017 to Feb 2020 · Vadodara, India</div>
-        <div>
-          <p class="role">Graphic Designer &amp; Creative Content Lead</p>
-          <p class="org">OURVADODARA</p>
-          <p class="desc">Core creative team member on a media platform that grew to 1M+ followers, with story-first content and infographics.</p>
+          <h3>Postgraduate in Brand Management, Algonquin College, and brand consulting</h3>
+          <p>Brand strategy, market research, and a FenceScape pitch that won the team evaluation.</p>
         </div>
       </li>
     </ol>
   </section>
 
+  <section aria-labelledby="report-title">
+    <p class="label">Skills, honestly rated</p>
+    <h2 id="report-title" class="section-title display">My <em>report card.</em></h2>
+    <div class="pair">
+      <div class="report">
+        <h3>Report card</h3>
+        <ul>
+          <li>Brand strategy &amp; activation <span class="grade top">my specialty</span></li>
+          <li>Story-first content design <span class="grade top">my specialty</span></li>
+          <li>Organic growth strategy <span class="grade top">my specialty</span></li>
+          <li>Audience analytics <span class="grade">covered</span></li>
+          <li>Creative direction <span class="grade">covered</span></li>
+          <li>Meltwater social listening <span class="grade">covered</span></li>
+          <li>SEO content <span class="grade">covered</span></li>
+          <li>AI workflow automation <span class="grade">covered</span></li>
+        </ul>
+      </div>
+      <aside class="passport" aria-label="Quick facts">
+        <h3>Passport</h3>
+        <dl>
+          <div><dt>Name</dt><dd>Raveena Patel</dd></div>
+          <div><dt>Based in</dt><dd>Ottawa, ON</dd></div>
+          <div><dt>Also speaks</dt><dd>Hindi and Gujarati</dd></div>
+          <div><dt>Studied</dt><dd>Brand Management, Algonquin College</dd></div>
+        </dl>
+        <div class="stamps" aria-label="Stamps">
+          <span>Former national-level judo player</span>
+          <span>Self-taught in Adobe Creative Cloud</span>
+          <span>Lived on 3 continents</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
   <section id="skills" aria-labelledby="skills-title">
-    <p class="label">Skills</p>
+    <p class="label">Tools &amp; skills</p>
     <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
     <div class="skills">
       <span class="pill hi">Brand Strategy &amp; Activation</span>
@@ -330,6 +393,8 @@ footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
       <span class="pill">Workflow Optimization</span>
       <span class="pill">AI Workflow Automation</span>
       <span class="pill">Meltwater Social Listening</span>
+      <span class="pill">Adobe Creative Cloud</span>
+      <span class="pill">Canva</span>
     </div>
   </section>
 
@@ -345,19 +410,18 @@ footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
         <p>Tilak Maharashtra Vidyapeeth, Pune, India</p>
       </div>
       <div class="fact">
-        <h3>Certifications, languages &amp; more</h3>
+        <h3>Certifications &amp; languages</h3>
         <ul>
           <li>Level II Certification: Social Listening (Meltwater)</li>
           <li>AI Workflow Automation</li>
           <li>English (bilingual), Hindi, Gujarati</li>
-          <li>Former national-level judo athlete</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title" class="display">Let&rsquo;s build something people <em>remember.</em></h2>
+    <h2 id="contact-title" class="display">Let&rsquo;s make something <em>people remember.</em></h2>
     <p class="lede">Open to brand, digital marketing, and content strategy roles. Reach out by email or phone, or connect on LinkedIn.</p>
     <div class="rows">
       <div class="row">
@@ -378,11 +442,40 @@ footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
     <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
   </section>
 
-  <footer>© 2026 Raveena Patel · Ottawa, Ontario</footer>
+  <footer>
+    <span>© 2026 Raveena Patel · Ottawa, Ontario</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
 </main>
 
 <script>
 (function () {
+  var root = document.documentElement;
+  var toggle = document.getElementById("theme-toggle");
+  function setTheme(t) {
+    if (t === "dark") root.setAttribute("data-theme", "dark");
+    else root.removeAttribute("data-theme");
+    var dark = t === "dark";
+    toggle.textContent = dark ? "Light mode" : "Dark mode";
+    toggle.setAttribute("aria-pressed", dark ? "true" : "false");
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("theme"); } catch (e) {}
+  setTheme(saved === "dark" ? "dark" : "light");
+  toggle.addEventListener("click", function () {
+    var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
+    setTheme(next);
+    try { localStorage.setItem("theme", next); } catch (e) {}
+  });
+
+  var swipe = document.getElementById("swipe");
+  var count = document.getElementById("swipe-count");
+  var slides = swipe.querySelectorAll("figure").length;
+  swipe.addEventListener("scroll", function () {
+    var i = Math.round(swipe.scrollLeft / (swipe.firstElementChild.offsetWidth + 16));
+    count.textContent = (Math.min(i, slides - 1) + 1) + " / " + slides;
+  }, { passive: true });
+
   var status = document.getElementById("copy-status");
   function fallback(text) {
     var ta = document.createElement("textarea");
