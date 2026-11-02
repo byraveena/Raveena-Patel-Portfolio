@@ -1,10 +1,16 @@
-<meta name="claude:viewport-fit-sides" content="cover">
-<title>Raveena Patel Portfolio</title>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raveena Patel | Brand &amp; Marketing Manager</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap">
+<meta name="description" content="Raveena Patel, brand and digital marketing manager in Ottawa. Campaign work across social, video, and brand strategy.">
 <style>
-/* Layout: one column of editorial sections on a wide canvas. Hero sets the thesis,
-   a stats strip gives proof, then work cards, a typed timeline, and a quiet contact band. */
-
-/* Palette tokens (light) */
+/* Layout: a clear hero with proof numbers, then case studies that lead with results and visuals,
+   then experience, skills, and contact. Palette and type follow the lavender and mint identity. */
 :root {
   --bg: #f6f4fd;
   --surface: #ffffff;
@@ -13,180 +19,130 @@
   --accent: #5a3bb5;
   --on-accent: #ffffff;
   --mint: #b9f2cf;
-  --lav: #d9d4fb;
+  --lav: #e4e0fb;
   --line: #dcd8ef;
+  color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --bg: #14122a;
-    --surface: #1e1b3c;
-    --fg: #f1efff;
-    --muted: #b0aacd;
-    --accent: #b9abff;
-    --on-accent: #14122a;
-    --mint: #1f4a3d;
-    --lav: #2d2960;
-    --line: #353162;
+    --bg: #14122a; --surface: #1e1b3c; --fg: #f1efff; --muted: #b0aacd;
+    --accent: #b9abff; --on-accent: #14122a; --mint: #1f4a3d; --lav: #2a2656; --line: #353162;
     color-scheme: dark;
   }
 }
-:root[data-theme="dark"] {
-  --bg: #14122a;
-  --surface: #1e1b3c;
-  --fg: #f1efff;
-  --muted: #b0aacd;
-  --accent: #b9abff;
-  --on-accent: #14122a;
-  --mint: #1f4a3d;
-  --lav: #2d2960;
-  --line: #353162;
-  color-scheme: dark;
-}
-
 body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-top: 0;
-  padding-bottom: 0;
-  overflow-x: hidden;
+  font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px; line-height: 1.6;
 }
-img { max-width: 100%; }
+img { max-width: 100%; display: block; }
 a { color: var(--accent); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-
-.wrap { max-width: 1040px; margin: 0 auto; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 .display { font-family: "Instrument Serif", Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
-.label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 500; margin: 0 0 14px; }
-.num { font-variant-numeric: tabular-nums; }
+.label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 600; margin: 0 0 12px; }
+em { font-style: italic; color: var(--accent); }
 
 /* Top bar */
-.topbar {
-  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;
-  padding-block: 22px;
-}
-.brand { font-weight: 700; color: var(--fg); text-decoration: none; }
-.nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.topbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 22px; }
+.brand { font-size: 24px; color: var(--fg); text-decoration: none; }
+.nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
 .nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
 .nav a:hover { color: var(--fg); }
 
 /* Hero */
-.hero { padding-block: 48px 56px; }
-.hero h1 { font-size: clamp(44px, 8vw, 92px); line-height: 1.02; margin: 0 0 28px; color: var(--fg); }
-.hero h1 em { color: var(--accent); }
-.hero .role { font-size: 18px; color: var(--fg); margin: 0 0 12px; font-weight: 500; }
-.hero .lede { max-width: 62ch; color: var(--muted); font-size: 18px; margin: 0 0 32px; }
+.hero { padding-block: 40px 52px; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 40px; align-items: end; }
+.hero h1 { font-size: clamp(44px, 7vw, 84px); line-height: 1.02; margin: 0 0 22px; }
+.hero .role { font-size: 18px; font-weight: 600; margin: 0 0 12px; }
+.hero .lede { color: var(--muted); font-size: 18px; margin: 0 0 28px; max-width: 58ch; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
-.btn {
-  display: inline-block; padding: 12px 20px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 500;
-  text-decoration: none; border: 1px solid var(--accent); cursor: pointer; background: transparent; color: var(--accent);
-}
+.btn { display: inline-block; padding: 12px 20px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 600; text-decoration: none; border: 1px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; }
 .btn.solid { background: var(--accent); color: var(--on-accent); }
 .btn:hover { filter: brightness(1.08); }
-.copy-status { font-size: 14px; color: var(--muted); align-self: center; min-height: 1em; }
-
-/* Stats strip */
-.stats {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
-  background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
-}
-.stat { background: var(--surface); padding: 22px 20px; min-width: 0; }
-.stat .value { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(32px, 4vw, 44px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
-.stat .caption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.hero-proof { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: grid; gap: 18px; }
+.proof-row .num { font-family: "Instrument Serif", Georgia, serif; font-size: 44px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.proof-row .cap { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.proof-row + .proof-row { border-top: 1px solid var(--line); padding-top: 18px; }
 
 /* Sections */
-section { padding-block: 72px 0; }
-.section-title { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin: 0 0 32px; }
-.section-title em { color: var(--accent); }
+section { padding-block: 64px 0; }
+.section-title { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin: 0 0 30px; }
 
-/* Work */
-.work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px; min-width: 0;
-  display: flex; flex-direction: column; gap: 12px;
-}
-.card.feature { grid-column: 1 / -1; background: var(--lav); border-color: transparent; }
-.card .tag { align-self: flex-start; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--mint); padding: 4px 10px; border-radius: 999px; }
-.card h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1; margin: 0; color: var(--fg); text-wrap: balance; }
-.card .meta { font-size: 14px; color: var(--muted); margin: 0; }
-.card ul { margin: 0; padding-left: 18px; color: var(--fg); }
-.card li { margin-bottom: 6px; }
-.card .result { font-size: 15px; font-weight: 700; color: var(--accent); margin: auto 0 0; padding-top: 6px; }
+/* Case studies */
+.cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+.case { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+.case.wide { grid-column: 1 / -1; }
+.case.tint { background: var(--lav); border-color: transparent; }
+.case .shots { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2px; background: var(--line); }
+.case .shots img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 3; background: var(--surface); }
+.case.wide .shots img { aspect-ratio: 4 / 5; }
+.case.portrait .shots img { aspect-ratio: 3 / 4; }
+.case .shots.one { grid-template-columns: minmax(0, 1fr); }
+.case .shots.one img { aspect-ratio: auto; height: auto; object-fit: contain; }
+.case .body { padding: 26px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.tag { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--mint); padding: 5px 11px; border-radius: 999px; }
+.case h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 32px; line-height: 1.1; margin: 0; text-wrap: balance; }
+.meta { font-size: 14px; color: var(--muted); margin: 0; }
+.case ul { margin: 0; padding-left: 18px; }
+.case li { margin-bottom: 6px; }
+.result { margin: auto 0 0; padding-top: 10px; font-weight: 700; color: var(--accent); font-size: 16px; border-top: 1px solid var(--line); }
+.placeholder-note { font-size: 14px; color: var(--muted); font-style: italic; margin: 0; }
 
-/* Experience timeline */
+/* Experience */
 .timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.timeline li {
-  display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 8px 28px;
-  padding-block: 22px; border-bottom: 1px solid var(--line);
-}
-.timeline .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.timeline .role { font-weight: 700; color: var(--fg); margin: 0; }
-.timeline .org { color: var(--accent); margin: 0 0 6px; font-size: 15px; }
-.timeline p { margin: 0; color: var(--muted); font-size: 15px; }
+.timeline li { display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 6px 28px; padding-block: 22px; border-bottom: 1px solid var(--line); }
+.when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.role { font-weight: 700; margin: 0; }
+.org { color: var(--accent); margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+.timeline p.desc { margin: 0; color: var(--muted); font-size: 15px; }
 
 /* Skills */
 .skills { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--fg); }
+.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; }
 .pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
-/* Two-column facts */
+/* Facts */
 .facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; min-width: 0; }
-.fact h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 500; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-width: 0; }
+.fact h3 { margin: 0 0 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
 .fact p, .fact li { margin: 0 0 8px; font-size: 15px; }
 .fact ul { margin: 0; padding-left: 18px; }
-.fact .name { font-weight: 700; color: var(--fg); margin: 0; }
-
-/* Campaign gallery */
-.gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.shot { margin: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; min-width: 0; display: flex; flex-direction: column; }
-.shot img { display: block; width: 100%; height: auto; }
-.shot figcaption { padding: 16px 18px 20px; font-size: 14px; color: var(--muted); line-height: 1.5; }
-.shot figcaption strong { display: block; color: var(--fg); font-size: 15px; margin-bottom: 4px; }
-.award { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; align-items: center; margin-top: 28px; background: var(--lav); border-radius: 18px; padding: 24px; }
-.award img { width: 100%; height: auto; border-radius: 12px; display: block; }
-.award .label { margin-bottom: 8px; }
-.award-title { font-family: "Instrument Serif", Georgia, serif; font-size: 30px; line-height: 1.1; margin: 0 0 10px; color: var(--fg); text-wrap: balance; }
+.fact .name { font-weight: 700; margin: 0; }
 
 /* Contact */
-.contact {
-  margin-top: 80px; background: var(--mint); color: var(--fg); border-radius: 24px; padding: 48px 32px; margin-bottom: 48px;
-}
+.contact { margin-top: 72px; margin-bottom: 40px; background: var(--mint); color: #1b1640; border-radius: 26px; padding: 48px 32px; }
 .contact h2 { margin: 0 0 12px; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; }
-.contact p.lede { margin: 0 0 28px; max-width: 56ch; color: var(--fg); }
-.contact .rows { display: grid; gap: 14px; }
-.contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 17px; }
-.contact .row span.k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; min-width: 72px; color: var(--fg); opacity: 0.75; }
-.contact a { color: var(--fg); font-weight: 700; word-break: break-word; }
-.mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--fg); background: transparent; color: var(--fg); cursor: pointer; }
-
-footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
+.contact .lede { margin: 0 0 26px; max-width: 56ch; }
+.rows { display: grid; gap: 14px; }
+.row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 17px; }
+.row .k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; min-width: 72px; opacity: 0.75; font-weight: 600; }
+.contact a { color: #1b1640; font-weight: 700; overflow-wrap: anywhere; }
+.mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid #1b1640; background: transparent; color: #1b1640; cursor: pointer; }
+.copy-status { font-size: 14px; min-height: 1.4em; margin: 16px 0 0; }
+footer { padding-block: 16px 36px; font-size: 14px; color: var(--muted); }
 
 /* Responsive */
 @media (max-width: 860px) {
-  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .work-grid, .facts { grid-template-columns: minmax(0, 1fr); }
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .award { grid-template-columns: minmax(0, 1fr); }
-  .card.feature { grid-column: auto; }
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 24px; }
+  .cases, .facts { grid-template-columns: minmax(0, 1fr); }
+  .case.wide { grid-column: auto; }
   .timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
 }
 @media (max-width: 420px) {
-  .hero { padding-block: 32px 40px; }
-  .card { padding: 22px; }
-  .gallery { grid-template-columns: minmax(0, 1fr); }
-  .contact { padding: 32px 22px; }
+  .case .body, .fact, .hero-proof { padding: 20px; }
+  .contact { padding: 32px 20px; }
+  .case .shots { grid-template-columns: minmax(0, 1fr); }
+  .case .shots img { aspect-ratio: auto; height: auto; }
 }
-@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
 </style>
+</head>
+<body>
 
 <header class="wrap topbar">
-  <a class="brand display" href="#top" style="font-size:24px">Raveena Patel</a>
+  <a class="brand display" href="#top">Raveena Patel</a>
   <nav class="nav" aria-label="Sections">
     <a href="#work">Work</a>
     <a href="#experience">Experience</a>
@@ -196,119 +152,106 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
 </header>
 
 <main id="top" class="wrap">
-  <div class="hero">
-    <p class="label">Marketing &amp; Brand Manager · Ottawa, ON</p>
-    <h1 class="display">Great brands don&rsquo;t need to <em>shout.</em></h1>
-    <p class="role">I&rsquo;m a brand manager and digital strategist.</p>
-    <p class="lede">I grow brands through organic content and storytelling across Instagram, YouTube, and TikTok. I map the digital architecture first, decide what needs to be said and to whom, then build the systems that make the brand hard to ignore.</p>
-    <div class="actions">
-      <a class="btn solid" href="#work">See my work</a>
-      <a class="btn" href="https://www.linkedin.com/in/raveenapatel-brandmanager/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </div>
 
-  <div class="stats" role="list">
-    <div class="stat" role="listitem"><div class="value">1M+</div><div class="caption">Views on anchor video content</div></div>
-    <div class="stat" role="listitem"><div class="value">1M+</div><div class="caption">Followers built from scratch at Our Vadodara</div></div>
-    <div class="stat" role="listitem"><div class="value">3M+</div><div class="caption">Followers across PayTm campaigns</div></div>
-    <div class="stat" role="listitem"><div class="value">20K+</div><div class="caption">Professional LinkedIn community</div></div>
+  <div class="hero">
+    <div>
+      <p class="label">Marketing &amp; Brand Manager · Ottawa, ON</p>
+      <h1 class="display">Great brands don&rsquo;t need to <em>shout.</em></h1>
+      <p class="role">Brand and digital marketing manager, content and social strategist.</p>
+      <p class="lede">I build brands through storytelling and organic content on Instagram, YouTube, and TikTok. I start with the audience and the strategy, then build the content system that makes the brand easy to remember.</p>
+      <div class="actions">
+        <a class="btn solid" href="#work">See my work</a>
+        <a class="btn" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-proof" aria-label="Headline results">
+      <div class="proof-row">
+        <div class="num">3M+</div>
+        <div class="cap">Followers across client brands at Adert Advertising, on YouTube and Instagram</div>
+      </div>
+      <div class="proof-row">
+        <div class="num">100K+</div>
+        <div class="cap">Average views per anchor video post at Adert</div>
+      </div>
+      <div class="proof-row">
+        <div class="num">20K+</div>
+        <div class="cap">LinkedIn community built at Beverage Trade Network</div>
+      </div>
+    </div>
   </div>
 
   <section id="work" aria-labelledby="work-title">
     <p class="label">Selected work</p>
-    <h2 id="work-title" class="section-title display">Campaigns that <em>moved</em> audiences.</h2>
-    <div class="work-grid">
-      <article class="card feature">
-        <span class="tag">Organic growth</span>
-        <h3>Our Vadodara</h3>
-        <p class="meta">Graphic Designer &amp; Content Writer · 2017 to 2020</p>
-        <ul>
-          <li>Core team member who scaled the regional media platform to over 1M followers.</li>
-          <li>Created viral visuals, interactive infographics, and story-first posts for social.</li>
-          <li>Named a Facebook Community Leader in 2019 and 2020.</li>
-        </ul>
-        <p class="result">Grew social media from 100K to 1M+ followers.</p>
+    <h2 id="work-title" class="section-title display">Brands that <em>got noticed.</em></h2>
+
+    <div class="cases">
+
+      <article class="case wide">
+        <div class="shots">
+          <img src="assets/salesbuddy-why-sales.jpg" alt="Salesbuddy carousel cover: Why Sales? 7 Reasons This Might Be Your Best Move" width="1000" height="1000">
+          <img src="assets/salesbuddy-sales-tools.jpg" alt="Salesbuddy infographic: 10 Sales Tools Pros Use Daily" width="667" height="1000">
+        </div>
+        <div class="body">
+          <span class="tag">Brand build · 2025</span>
+          <h3>Salesbuddy: a brand built from scratch</h3>
+          <p class="meta">Social Media Strategist (volunteer) for a sales startup</p>
+          <ul>
+            <li>Created the visual identity and the social presence from zero.</li>
+            <li>Scripted, edited, and designed the carousels and infographics.</li>
+            <li>Automated the social posting workflow.</li>
+          </ul>
+          <p class="result">2K LinkedIn followers gained in one month.</p>
+        </div>
       </article>
 
-      <article class="card">
-        <span class="tag">Video &amp; reels</span>
-        <h3>PayTm x Adert</h3>
-        <p class="meta">Digital Marketing Manager · 2020 to 2022</p>
-        <ul>
-          <li>Led the core team on regional marketing with a listed company.</li>
-          <li>Wrote and directed YouTube and reel scripts for advertisements.</li>
-        </ul>
-        <p class="result">3M+ followers across YouTube and Instagram.</p>
+      <article class="case">
+        <div class="shots">
+          <img src="assets/anjoy-profile-cover.jpg" alt="Anjoy company profile cover: restaurant interior with the Anjoy logo and the tagline A Multicuisine Experience" width="1000" height="707">
+          <img src="assets/anjoy-award.jpg" alt="Anjoy restaurant accepting the Best Family Restaurant, Luxury Dining award in Mumbai, February 2023" width="462" height="278">
+        </div>
+        <div class="body">
+          <span class="tag">Restaurant rebrand · 2021 to 2022</span>
+          <h3>Anjoy: from rebrand to award</h3>
+          <p class="meta">Digital marketing at Adert Advertising &amp; Marketing</p>
+          <ul>
+            <li>Rebranded the restaurant and its social presence.</li>
+            <li>Drove steady monthly foot traffic through content.</li>
+            <li>Won Best Family Restaurant, Luxury Dining, at the Food Connoisseurs India Awards (Feb 2023).</li>
+          </ul>
+          <p class="result">Grew to 20K+ followers.</p>
+        </div>
       </article>
 
-      <article class="card">
-        <span class="tag">Rebrand</span>
-        <h3>Anjoy x Adert</h3>
-        <p class="meta">Digital Marketing Manager · 2021 to 2022</p>
-        <ul>
-          <li>Rebranded a restaurant and grew its social presence.</li>
-          <li>Drove steady foot traffic to the business each month.</li>
-        </ul>
-        <p class="result">Grew the account to 20K+ followers.</p>
+      <article class="case portrait">
+        <div class="shots one">
+          <img src="assets/popular-wheelers.jpg" alt="Popular Wheelers dealership ads for Nexa and Maruti Suzuki cars, with offers and showroom details" width="595" height="842">
+        </div>
+        <div class="body">
+          <span class="tag">Paid social · 2021</span>
+          <h3>Dealership ads for Nexa and Maruti Suzuki</h3>
+          <p class="meta">Campaign design for Popular Wheelers</p>
+          <ul>
+            <li>Built offer-led ads for each model.</li>
+            <li>Kept messaging, showroom details, and visuals consistent.</li>
+          </ul>
+          <p class="result">Ads built for offers, test drives, and showroom traffic.</p>
+        </div>
       </article>
 
-      <article class="card">
-        <span class="tag">Brand strategy</span>
-        <h3>FenceScape</h3>
-        <p class="meta">Brand Manager, college project · 2025</p>
-        <ul>
-          <li>Led the winning team in a brand management pitch.</li>
-          <li>Built marketing and branding strategy, budget plan, and visual templates for a Canadian fencing company.</li>
-        </ul>
-        <p class="result">Won the client pitch.</p>
+      <article class="case tint">
+        <div class="body">
+          <span class="tag">Brand strategy · 2025</span>
+          <h3>FenceScape: a brand and marketing plan</h3>
+          <p class="meta">Brand Strategist, consulting project for a Canadian fencing company</p>
+          <ul>
+            <li>Market research and competitor benchmarking.</li>
+            <li>Marketing budget plan and brand roadmap.</li>
+            <li>Visual templates, brand guidelines, and pitch deck.</li>
+          </ul>
+          <p class="result">Won the team pitch and top honours in the capstone evaluation.</p>
+        </div>
       </article>
 
-      <article class="card">
-        <span class="tag">Startup brand</span>
-        <h3>SalesBuddy</h3>
-        <p class="meta">Social Media Strategist, volunteer · 2025</p>
-        <ul>
-          <li>Created the visual brand identity from scratch for a sales startup.</li>
-          <li>Scripted, edited, and automated its social media marketing.</li>
-        </ul>
-        <p class="result">Grew 2K LinkedIn followers in one month.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="campaigns" aria-labelledby="campaigns-title">
-    <p class="label">Campaign samples</p>
-    <h2 id="campaigns-title" class="section-title display">Social posts that <em>stop the scroll.</em></h2>
-    <div class="gallery">
-      <figure class="shot">
-        <img src="assets/popular-wheelers.jpg" alt="Popular Wheelers dealership ads for Nexa and Maruti Suzuki cars, showing offers and showroom details" loading="lazy" width="595" height="842">
-        <figcaption><strong>Popular Wheelers</strong> Automotive dealership ads for Nexa and Maruti Suzuki, built around offers and test drives.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/adert-social.jpg" alt="Adert Advertising social media carousel slides, including Why Digital Marketing and Did You Know" loading="lazy" width="595" height="842">
-        <figcaption><strong>Adert Advertising</strong> Carousel slides that explain digital marketing in simple, shareable pieces.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/indian-spice.jpg" alt="Food posts for Indian Spice restaurant, with menu photography and bold headlines" loading="lazy" width="595" height="842">
-        <figcaption><strong>Restaurant &amp; hospitality</strong> Menu and feature posts for Indian Spice, with bold food-first visuals.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/salesbuddy-why-sales.jpg" alt="Salesbuddy carousel cover reading Why Sales? 7 Reasons This Might Be Your Best Move" loading="lazy" width="1000" height="1000">
-        <figcaption><strong>Salesbuddy</strong> Carousel cover designed to make a sales career feel like a clear next step.</figcaption>
-      </figure>
-      <figure class="shot">
-        <img src="assets/salesbuddy-sales-tools.jpg" alt="Salesbuddy infographic titled 10 Sales Tools Pros Use Daily" loading="lazy" width="667" height="1000">
-        <figcaption><strong>Salesbuddy</strong> Infographic that lists the tools working sales pros use every day.</figcaption>
-      </figure>
-    </div>
-
-    <div class="award">
-      <img src="assets/anjoy-award.jpg" alt="Anjoy restaurant accepting the Best Family Restaurant award in Vadodara at the Food Connoisseurs India Awards, Mumbai, February 2023" loading="lazy" width="462" height="278">
-      <div>
-        <p class="label">Recognition</p>
-        <p class="award-title">Best Family Restaurant, Luxury Dining, Vadodara</p>
-        <p class="meta">Food Connoisseurs India Awards, Mumbai, February 2023. Restaurant rebrand and social growth while at Adert Advertising &amp; Marketing.</p>
-      </div>
     </div>
   </section>
 
@@ -321,15 +264,15 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         <div>
           <p class="role">Esthetician &amp; Client Experience Specialist</p>
           <p class="org">Caryl Baker Visage</p>
-          <p>Direct-to-consumer retail, product positioning, and the sales lifecycle. Turned product knowledge into clear, trust-building advice.</p>
+          <p class="desc">Direct-to-consumer retail, product positioning, and the sales lifecycle. Turned product knowledge into clear, trust-building advice.</p>
         </div>
       </li>
       <li>
         <div class="when">Jun 2025 to Nov 2025 · Ottawa, ON</div>
         <div>
-          <p class="role">Brand Manager (capstone project)</p>
+          <p class="role">Brand Strategist, consulting project</p>
           <p class="org">FenceScape</p>
-          <p>Market research, a marketing budget plan, and visual asset templates for a small business.</p>
+          <p class="desc">Market research, marketing budget plan, brand roadmap, and visual templates for a small business.</p>
         </div>
       </li>
       <li>
@@ -337,7 +280,7 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         <div>
           <p class="role">Social Media &amp; Brand Growth Manager</p>
           <p class="org">Algurutheme</p>
-          <p>Multi-platform growth strategy across shifting algorithms, from ideation through copy, visuals, and community. Used audience data to refine organic reach.</p>
+          <p class="desc">Multi-platform growth across changing algorithms, from ideation through copy, visuals, and community.</p>
         </div>
       </li>
       <li>
@@ -345,23 +288,23 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         <div>
           <p class="role">Digital Marketing Executive</p>
           <p class="org">Beverage Trade Network</p>
-          <p>SEO-driven content and acquisition that lifted qualified web traffic. Built a 20K+ LinkedIn community through curation and data-led optimization.</p>
+          <p class="desc">SEO-driven content and acquisition that lifted qualified web traffic. Built a 20K+ LinkedIn community.</p>
         </div>
       </li>
       <li>
-        <div class="when">Feb 2020 to Feb 2022 · Vadodara</div>
+        <div class="when">Feb 2020 to Feb 2022 · Vadodara, India</div>
         <div>
           <p class="role">Digital Marketing Manager</p>
           <p class="org">Adert Advertising &amp; Marketing</p>
-          <p>Led multi-client social strategy and supervised creative teams, averaging 100K+ views per anchor post. Tested creative to lower acquisition costs.</p>
+          <p class="desc">Led multi-client social strategy and supervised creative teams. Averaged 100K+ views per anchor post. Tested creative to lower acquisition costs.</p>
         </div>
       </li>
       <li>
-        <div class="when">Jan 2017 to Feb 2020 · Vadodara</div>
+        <div class="when">Jan 2017 to Feb 2020 · Vadodara, India</div>
         <div>
           <p class="role">Graphic Designer &amp; Creative Content Lead</p>
           <p class="org">OURVADODARA</p>
-          <p>Foundational creative strategist who helped scale the platform to 1M+ followers and grew agency clients&rsquo; revenue with story-first content.</p>
+          <p class="desc">Core creative team member on a media platform that grew to 1M+ followers, with story-first content and infographics.</p>
         </div>
       </li>
     </ol>
@@ -386,6 +329,7 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
       <span class="pill">Cross-Functional Leadership</span>
       <span class="pill">Workflow Optimization</span>
       <span class="pill">AI Workflow Automation</span>
+      <span class="pill">Meltwater Social Listening</span>
     </div>
   </section>
 
@@ -396,16 +340,16 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         <h3>Education</h3>
         <p class="name">Postgraduate in Brand Management</p>
         <p>Algonquin College of Applied Arts and Technology, Ottawa</p>
-        <p>Dean&rsquo;s Honours List, all four terms</p>
-        <p class="name" style="margin-top:14px">Bachelor of Mass Media (Animation &amp; Interactive Media)</p>
-        <p>Tilak Maharashtra Vidyapeeth, Pune</p>
+        <p>Dean&rsquo;s Honours List</p>
+        <p class="name" style="margin-top:16px">Bachelor of Mass Media (Animation &amp; Interactive Media)</p>
+        <p>Tilak Maharashtra Vidyapeeth, Pune, India</p>
       </div>
       <div class="fact">
-        <h3>Certifications &amp; languages</h3>
+        <h3>Certifications, languages &amp; more</h3>
         <ul>
-          <li>Level II Certification: Social Listening, Meltwater</li>
+          <li>Level II Certification: Social Listening (Meltwater)</li>
           <li>AI Workflow Automation</li>
-          <li>English (bilingual), Hindi (full professional), Gujarati (professional working)</li>
+          <li>English (bilingual), Hindi, Gujarati</li>
           <li>Former national-level judo athlete</li>
         </ul>
       </div>
@@ -423,7 +367,7 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
       </div>
       <div class="row">
         <span class="k">Phone</span>
-        <span class="num" style="font-weight:700">343 542 1903</span>
+        <span style="font-weight:700">343 542 1903</span>
         <button class="mini" type="button" data-copy="343 542 1903">Copy</button>
       </div>
       <div class="row">
@@ -459,3 +403,5 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
   });
 })();
 </script>
+</body>
+</html>
