@@ -125,6 +125,11 @@ section { padding-top: 84px; }
 .pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--fg); }
 .pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
 
+.ring { display: flex; flex-wrap: wrap; gap: 18px; }
+.ringc { width: 110px; text-align: center; font-size: 13px; color: var(--muted); line-height: 1.3; }
+.ringc .c { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; }
+.ringc .rc-in { width: 66px; height: 66px; border-radius: 50%; background: var(--surface); color: var(--fg); display: flex; align-items: center; justify-content: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 16px; }
+
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
@@ -273,26 +278,46 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <div class="stat reveal" role="listitem"><div class="value">20K+</div><div class="caption">Professional LinkedIn community</div></div>
   </div>
 
-  <!-- 1. Skills, before experience. Levels below are PLACEHOLDERS to confirm before publishing. -->
+  <!-- 1. Skills, before experience. Ranked by focus (not measured levels). -->
   <section id="skills" aria-labelledby="skills-title">
     <p class="label">Skills</p>
     <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
-    <div class="pills reveal">
-      <span class="pill hi">Brand Strategy &amp; Activation</span>
-      <span class="pill hi">Story-First Content Design</span>
-      <span class="pill hi">Organic Growth Strategy</span>
-      <span class="pill">Brand Positioning</span>
-      <span class="pill">Go-to-Market (GTM)</span>
-      <span class="pill">Direct-to-Consumer (D2C)</span>
-      <span class="pill">Consumer Behavior</span>
-      <span class="pill">Audience Analytics</span>
-      <span class="pill">Multi-Platform Content</span>
-      <span class="pill">SEO Content</span>
-      <span class="pill">Creative Direction</span>
-      <span class="pill">Community Engagement</span>
-      <span class="pill">Cross-Functional Leadership</span>
-      <span class="pill">Workflow Optimization</span>
-      <span class="pill">AI Workflow Automation</span>
+    <p class="d" style="margin:-16px 0 24px;color:var(--muted);font-size:14px">Ranked by focus, not measured levels.</p>
+    <div class="skill-grid">
+      <div class="skill-card reveal">
+        <h3>Social media &amp; editing</h3>
+        <p class="d">Bars, longest first</p>
+        <div class="bar"><div class="bar-head"><span>Short-form video (Reels, TikTok, YouTube Shorts)</span><b>#1</b></div><div class="track"><div class="fill" data-w="100"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Social media strategy</span><b>#2</b></div><div class="track"><div class="fill" data-w="96"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Organic growth (Instagram, TikTok, YouTube)</span><b>#3</b></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Content creation and storytelling</span><b>#4</b></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Video editing (CapCut, VN, InShot)</span><b>#5</b></div><div class="track"><div class="fill" data-w="84"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Canva design</span><b>#6</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Community management</span><b>#7</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
+<div class="bar"><div class="bar-head"><span>Influencer marketing</span><b>#8</b></div><div class="track"><div class="fill" data-w="72"></div></div></div>
+<div class="bar"><div class="bar-head"><span>SEO content</span><b>#9</b></div><div class="track"><div class="fill" data-w="68"></div></div></div>
+      </div>
+      <div class="skill-card reveal">
+        <h3>Management</h3>
+        <p class="d">Stars, most focus first</p>
+        <div class="stars-row"><span>Brand strategy and management</span><span class="stars" aria-label="ranked 10">★★★★★</span></div>
+<div class="stars-row"><span>Brand identity and brand guidelines</span><span class="stars" aria-label="ranked 11">★★★★<span class="off">★</span></span></div>
+<div class="stars-row"><span>Brand positioning</span><span class="stars" aria-label="ranked 12">★★★★<span class="off">★</span></span></div>
+<div class="stars-row"><span>Go-to-market strategy</span><span class="stars" aria-label="ranked 13">★★★<span class="off">★★</span></span></div>
+<div class="stars-row"><span>Cross-functional leadership</span><span class="stars" aria-label="ranked 14">★★★<span class="off">★★</span></span></div>
+<div class="stars-row"><span>Creative direction</span><span class="stars" aria-label="ranked 15">★★★<span class="off">★★</span></span></div>
+      </div>
+    </div>
+    <div class="skill-card reveal" style="margin-top:20px">
+      <h3>Analytics &amp; paid ads</h3>
+      <p class="d">Circles, fullest first</p>
+      <div class="ring">
+        <div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 100%, var(--track) 0)"><span class="rc-in">#16</span></div>Audience analytics</div>
+<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 85%, var(--track) 0)"><span class="rc-in">#17</span></div>Social listening (Meltwater)</div>
+<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 70%, var(--track) 0)"><span class="rc-in">#18</span></div>Performance reporting</div>
+<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 55%, var(--track) 0)"><span class="rc-in">#19</span></div>AI workflow automation</div>
+<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 40%, var(--track) 0)"><span class="rc-in">#20</span></div>Paid social campaigns</div>
+      </div>
     </div>
   </section>
 
