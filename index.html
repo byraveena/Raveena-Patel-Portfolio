@@ -12,38 +12,24 @@
 /* Light is the default for every visitor. Dark applies only after someone chooses it. */
 :root {
   color-scheme: light;
-  --bg: #f6f4fd;
-  --surface: #ffffff;
-  --fg: #1b1640;
-  --muted: #5b5676;
-  --accent: #5a3bb5;
-  --on-accent: #ffffff;
-  --mint: #b9f2cf;
-  --lav: #e4e0fb;
-  --line: #dcd8ef;
+  --bg: #f6f4fd; --surface: #ffffff; --fg: #1b1640; --muted: #5b5676;
+  --accent: #5a3bb5; --on-accent: #ffffff; --mint: #b9f2cf; --lav: #e4e0fb; --line: #dcd8ef;
+  --film: #1b1640; --film-hole: #f6f4fd;
 }
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --bg: #14122a;
-  --surface: #1e1b3c;
-  --fg: #f1efff;
-  --muted: #b0aacd;
-  --accent: #b9abff;
-  --on-accent: #14122a;
-  --mint: #1f4a3d;
-  --lav: #2a2656;
-  --line: #353162;
+  --bg: #14122a; --surface: #1e1b3c; --fg: #f1efff; --muted: #b0aacd;
+  --accent: #b9abff; --on-accent: #14122a; --mint: #1f4a3d; --lav: #2a2656; --line: #353162;
+  --film: #0b0a1a; --film-hole: #14122a;
 }
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--fg);
+  margin: 0; background: var(--bg); color: var(--fg);
   font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   font-size: 16px; line-height: 1.6;
 }
 img { max-width: 100%; display: block; }
 a { color: var(--accent); }
-a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+a:focus-visible, button:focus-visible, .strip:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 .wrap { max-width: 1080px; margin: 0 auto; padding-left: 20px; padding-right: 20px; }
 .display { font-family: "Instrument Serif", Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
 .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 600; margin: 0 0 12px; }
@@ -74,7 +60,22 @@ em { font-style: italic; color: var(--accent); }
 /* Sections */
 section { padding-block: 64px 0; }
 .section-title { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin: 0 0 30px; }
-.intro { font-size: 18px; color: var(--muted); max-width: 60ch; margin: -14px 0 30px; }
+
+/* Skills (top) */
+.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+.report { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-width: 0; }
+.report h3, .passport h3, .fact h3 { margin: 0 0 14px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
+.report ul { list-style: none; margin: 0; padding: 0; }
+.report li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.report li:last-child { border-bottom: 0; }
+.grade { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--lav); color: var(--fg); }
+.grade.top { background: var(--accent); color: var(--on-accent); }
+.tools { display: flex; flex-direction: column; gap: 18px; }
+.tools .pills { display: flex; flex-wrap: wrap; gap: 10px; }
+.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; }
+.pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.tools .card-lite { background: var(--mint); border-radius: 22px; padding: 24px; color: #1b1640; }
+.tools .card-lite p { margin: 0; font-size: 15px; }
 
 /* Case studies */
 .cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
@@ -105,39 +106,59 @@ section { padding-block: 64px 0; }
 .swipe figcaption { padding: 12px 16px 16px; font-size: 14px; color: var(--muted); }
 .swipe figcaption strong { display: block; color: var(--fg); }
 
-/* Career path (numbered: a true sequence) */
-.path { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
-.path li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 18px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 20px 22px; }
-.path .n { font-family: "Instrument Serif", Georgia, serif; font-size: 40px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
-.path h3 { margin: 0 0 4px; font-size: 17px; }
-.path p { margin: 0; font-size: 15px; color: var(--muted); }
+/* Film-strip timeline */
+.reel-head { display: flex; justify-content: space-between; align-items: end; gap: 16px; flex-wrap: wrap; margin-bottom: 26px; }
+.reel-head .section-title { margin: 0; }
+.reel-controls { display: flex; align-items: center; gap: 14px; }
+.reel-controls .counter { font-size: 14px; }
+.film { background: var(--film); border-radius: 18px; padding: 0; overflow: hidden; }
+.strip {
+  display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+  padding: 34px 22px; scrollbar-width: none;
+  /* sprocket holes along the top and bottom edges; local attachment keeps them moving with the frames */
+  background-image:
+    radial-gradient(circle, var(--film-hole) 4px, transparent 5px),
+    radial-gradient(circle, var(--film-hole) 4px, transparent 5px);
+  background-size: 26px 18px;
+  background-repeat: repeat-x;
+  background-position: 0 6px, 0 calc(100% - 6px);
+  background-attachment: local;
+}
+.strip::-webkit-scrollbar { display: none; }
+.frame {
+  flex: 0 0 min(290px, 78%); scroll-snap-align: center; background: var(--surface); color: var(--fg);
+  border-radius: 10px; padding: 20px; display: flex; flex-direction: column; gap: 10px; min-height: 330px;
+  border: 1px solid var(--line);
+}
+.frame .yr { font-family: "Instrument Serif", Georgia, serif; font-size: 44px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.frame .org { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin: 0; }
+.frame h3 { margin: 0; font-size: 19px; line-height: 1.25; }
+.frame p.desc { margin: auto 0 0; font-size: 15px; color: var(--muted); }
+.frame.now { background: var(--mint); color: #1b1640; border-color: transparent; }
+.frame.now .yr { color: #1b1640; }
+.frame.now .org { color: #1b1640; opacity: 0.75; }
+.frame.now .desc { color: #1b1640; }
+.frame.now img { width: 100%; height: 190px; object-fit: cover; object-position: center top; border-radius: 8px; }
+.track { height: 4px; background: rgba(255,255,255,0.18); }
+.track .fill { height: 100%; width: 0; background: var(--mint); transition: width .15s linear; }
+.film-foot { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 22px; color: #f1efff; font-size: 14px; }
+.play { font: inherit; font-size: 14px; font-weight: 600; padding: 8px 16px; border-radius: 999px; border: 1px solid #f1efff; background: transparent; color: #f1efff; cursor: pointer; }
+.play:hover { background: rgba(255,255,255,0.08); }
 
-/* Two-up: report card and passport */
-.pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
-.report { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-width: 0; }
-.report h3, .passport h3 { margin: 0 0 14px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
-.report ul { list-style: none; margin: 0; padding: 0; }
-.report li { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
-.report li:last-child { border-bottom: 0; }
-.grade { font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; white-space: nowrap; background: var(--lav); color: var(--fg); }
-.grade.top { background: var(--accent); color: var(--on-accent); }
+/* Animation: only when JS is running, so the frames are visible if it isn't */
+.js .frame { opacity: 0; transform: translateX(28px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.js .frame.in { opacity: 1; transform: none; }
+
+/* Passport and education */
 .passport { background: var(--lav); border-radius: 22px; padding: 26px; min-width: 0; }
 .passport dl { display: grid; grid-template-columns: minmax(0, 1fr); margin: 0; gap: 12px; }
 .passport dt { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
 .passport dd { margin: 2px 0 0; font-size: 16px; font-weight: 600; }
 .stamps { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-.stamps span { font-size: 13px; padding: 6px 12px; border: 1.5px dashed var(--accent); color: var(--accent); border-radius: 8px; transform: rotate(-1.5deg); }
+.stamps span { font-size: 13px; padding: 6px 12px; border: 1.5px dashed var(--accent); color: var(--accent); border-radius: 8px; }
 .stamps span:nth-child(even) { transform: rotate(1.2deg); }
-
-/* Skills */
-.skills { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; }
-.pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-
-/* Facts */
-.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.stamps span:nth-child(odd) { transform: rotate(-1.2deg); }
 .fact { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 26px; min-width: 0; }
-.fact h3 { margin: 0 0 12px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
 .fact p, .fact li { margin: 0 0 8px; font-size: 15px; }
 .fact ul { margin: 0; padding-left: 18px; }
 .fact .name { font-weight: 700; margin: 0; }
@@ -158,7 +179,7 @@ footer a { color: var(--muted); }
 /* Responsive */
 @media (max-width: 860px) {
   .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; padding-top: 24px; }
-  .cases, .facts, .pair { grid-template-columns: minmax(0, 1fr); }
+  .cases, .pair { grid-template-columns: minmax(0, 1fr); }
   .case.wide { grid-column: auto; }
 }
 @media (max-width: 420px) {
@@ -166,10 +187,12 @@ footer a { color: var(--muted); }
   .contact { padding: 32px 20px; }
   .case .shots { grid-template-columns: minmax(0, 1fr); }
   .case .shots img { aspect-ratio: auto; height: auto; }
-  .path li { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; padding: 18px; }
-  .path .n { font-size: 32px; }
+  .frame { min-height: 300px; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+  .js .frame { opacity: 1; transform: none; }
+}
 </style>
 </head>
 <body>
@@ -177,9 +200,9 @@ footer a { color: var(--muted); }
 <header class="wrap topbar">
   <a class="brand display" href="#top">Raveena Patel</a>
   <nav class="nav" aria-label="Sections">
+    <a href="#skills">Skills</a>
     <a href="#work">Work</a>
     <a href="#journey">Journey</a>
-    <a href="#skills">Skills</a>
     <a href="#contact">Contact</a>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
   </nav>
@@ -213,6 +236,43 @@ footer a { color: var(--muted); }
       </div>
     </div>
   </div>
+
+  <section id="skills" aria-labelledby="skills-title">
+    <p class="label">Skills</p>
+    <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
+    <div class="pair">
+      <div class="report">
+        <h3>Report card</h3>
+        <ul>
+          <li>Brand strategy &amp; activation <span class="grade top">my specialty</span></li>
+          <li>Story-first content design <span class="grade top">my specialty</span></li>
+          <li>Organic growth strategy <span class="grade top">my specialty</span></li>
+          <li>Audience analytics <span class="grade">covered</span></li>
+          <li>Creative direction <span class="grade">covered</span></li>
+          <li>Meltwater social listening <span class="grade">covered</span></li>
+          <li>SEO content <span class="grade">covered</span></li>
+          <li>AI workflow automation <span class="grade">covered</span></li>
+        </ul>
+      </div>
+      <div class="tools">
+        <div class="pills">
+          <span class="pill">Brand Positioning</span>
+          <span class="pill">Go-to-Market (GTM)</span>
+          <span class="pill">Direct-to-Consumer (D2C)</span>
+          <span class="pill">Consumer Behavior</span>
+          <span class="pill">Multi-Platform Content</span>
+          <span class="pill">Community Engagement</span>
+          <span class="pill">Cross-Functional Leadership</span>
+          <span class="pill">Workflow Optimization</span>
+          <span class="pill">Adobe Creative Cloud</span>
+          <span class="pill">Canva</span>
+        </div>
+        <div class="card-lite">
+          <p><strong>Tools I work in daily:</strong> Adobe Creative Cloud, Canva, Meltwater, and AI workflow tools for faster content production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section id="work" aria-labelledby="work-title">
     <p class="label">Selected work</p>
@@ -305,59 +365,63 @@ footer a { color: var(--muted); }
   </section>
 
   <section id="journey" aria-labelledby="journey-title">
-    <p class="label">Journey</p>
-    <h2 id="journey-title" class="section-title display">Short, but <em>busy.</em></h2>
-    <ol class="path">
-      <li>
-        <span class="n">1</span>
-        <div>
-          <h3>Graphic designer and creative content lead, OurVadodara (2017 to 2020)</h3>
-          <p>Core creative team on a media platform that grew to 1M+ followers, with story-first content and infographics.</p>
-        </div>
-      </li>
-      <li>
-        <span class="n">2</span>
-        <div>
-          <h3>Digital marketing manager, Adert Advertising &amp; Marketing (2020 to 2022)</h3>
-          <p>Led multi-client social strategy, supervised creative teams, and built campaigns for YouTube, Instagram, and dealership and restaurant clients.</p>
-        </div>
-      </li>
-      <li>
-        <span class="n">3</span>
-        <div>
-          <h3>Digital marketing executive, Beverage Trade Network (2023)</h3>
-          <p>SEO-driven content and acquisition, plus a 20K+ LinkedIn community.</p>
-        </div>
-      </li>
-      <li>
-        <span class="n">4</span>
-        <div>
-          <h3>Postgraduate in Brand Management, Algonquin College, and brand consulting</h3>
-          <p>Brand strategy, market research, and a FenceScape pitch that won the team evaluation.</p>
-        </div>
-      </li>
-    </ol>
+    <div class="reel-head">
+      <div>
+        <p class="label">Journey</p>
+        <h2 id="journey-title" class="section-title display">The reel of <em>my career.</em></h2>
+      </div>
+      <div class="reel-controls">
+        <span class="counter" id="reel-count" aria-live="polite">Frame 1 of 5</span>
+        <button class="btn" id="reel-play" type="button" aria-pressed="false">Play reel</button>
+      </div>
+    </div>
+
+    <div class="film">
+      <div class="strip" id="strip" tabindex="0" aria-label="Career timeline, scroll sideways to see each frame">
+        <article class="frame">
+          <span class="yr">2017</span>
+          <p class="org">OurVadodara · 2017 to 2020</p>
+          <h3>Graphic designer and creative content lead</h3>
+          <p class="desc">Core creative team on a platform that grew to 1M+ followers.</p>
+        </article>
+        <article class="frame">
+          <span class="yr">2020</span>
+          <p class="org">Adert Advertising · 2020 to 2022</p>
+          <h3>Digital marketing manager</h3>
+          <p class="desc">Campaigns for YouTube, Instagram, dealership, and restaurant clients. 3M+ followers across client brands.</p>
+        </article>
+        <article class="frame">
+          <span class="yr">2023</span>
+          <p class="org">Beverage Trade Network</p>
+          <h3>Digital marketing executive</h3>
+          <p class="desc">SEO content and acquisition, plus a 20K+ LinkedIn community.</p>
+        </article>
+        <article class="frame">
+          <span class="yr">2025</span>
+          <p class="org">Algonquin College &amp; FenceScape</p>
+          <h3>Postgraduate in Brand Management and a brand strategy project</h3>
+          <p class="desc">Market research, a budget plan, and a pitch that won top honours.</p>
+        </article>
+        <article class="frame now">
+          <img src="assets/raveena-headshot.jpg" alt="Raveena Patel smiling, wearing sunglasses and a black hat" width="470" height="675">
+          <span class="yr">Now</span>
+          <p class="org">Ottawa, ON</p>
+          <p class="desc">Open to brand, marketing, and content strategy roles. Let&rsquo;s talk.</p>
+        </article>
+      </div>
+      <div class="track" aria-hidden="true"><div class="fill" id="reel-fill"></div></div>
+      <div class="film-foot">
+        <span>Scroll sideways, or press Play.</span>
+        <span>Frame by frame, 2017 to today</span>
+      </div>
+    </div>
   </section>
 
-  <section aria-labelledby="report-title">
-    <p class="label">Skills, honestly rated</p>
-    <h2 id="report-title" class="section-title display">My <em>report card.</em></h2>
+  <section aria-labelledby="facts-title">
+    <p class="label" id="facts-title">About me &amp; education</p>
     <div class="pair">
-      <div class="report">
-        <h3>Report card</h3>
-        <ul>
-          <li>Brand strategy &amp; activation <span class="grade top">my specialty</span></li>
-          <li>Story-first content design <span class="grade top">my specialty</span></li>
-          <li>Organic growth strategy <span class="grade top">my specialty</span></li>
-          <li>Audience analytics <span class="grade">covered</span></li>
-          <li>Creative direction <span class="grade">covered</span></li>
-          <li>Meltwater social listening <span class="grade">covered</span></li>
-          <li>SEO content <span class="grade">covered</span></li>
-          <li>AI workflow automation <span class="grade">covered</span></li>
-        </ul>
-      </div>
       <aside class="passport" aria-label="Quick facts">
-        <h3>Passport</h3>
+        <h3 class="display" style="font-size:26px;text-transform:none;letter-spacing:0;color:var(--fg);font-weight:400;margin:0 0 14px">Passport</h3>
         <dl>
           <div><dt>Name</dt><dd>Raveena Patel</dd></div>
           <div><dt>Based in</dt><dd>Ottawa, ON</dd></div>
@@ -370,37 +434,6 @@ footer a { color: var(--muted); }
           <span>Lived on 3 continents</span>
         </div>
       </aside>
-    </div>
-  </section>
-
-  <section id="skills" aria-labelledby="skills-title">
-    <p class="label">Tools &amp; skills</p>
-    <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
-    <div class="skills">
-      <span class="pill hi">Brand Strategy &amp; Activation</span>
-      <span class="pill hi">Story-First Content Design</span>
-      <span class="pill hi">Organic Growth Strategy</span>
-      <span class="pill">Brand Positioning</span>
-      <span class="pill">Go-to-Market (GTM)</span>
-      <span class="pill">Direct-to-Consumer (D2C)</span>
-      <span class="pill">Consumer Behavior</span>
-      <span class="pill">Audience Analytics</span>
-      <span class="pill">Multi-Platform Content</span>
-      <span class="pill">SEO Content</span>
-      <span class="pill">Creative Direction</span>
-      <span class="pill">Community Engagement</span>
-      <span class="pill">Cross-Functional Leadership</span>
-      <span class="pill">Workflow Optimization</span>
-      <span class="pill">AI Workflow Automation</span>
-      <span class="pill">Meltwater Social Listening</span>
-      <span class="pill">Adobe Creative Cloud</span>
-      <span class="pill">Canva</span>
-    </div>
-  </section>
-
-  <section aria-labelledby="facts-title">
-    <p class="label" id="facts-title">Education &amp; more</p>
-    <div class="facts">
       <div class="fact">
         <h3>Education</h3>
         <p class="name">Postgraduate in Brand Management</p>
@@ -408,14 +441,8 @@ footer a { color: var(--muted); }
         <p>Dean&rsquo;s Honours List</p>
         <p class="name" style="margin-top:16px">Bachelor of Mass Media (Animation &amp; Interactive Media)</p>
         <p>Tilak Maharashtra Vidyapeeth, Pune, India</p>
-      </div>
-      <div class="fact">
-        <h3>Certifications &amp; languages</h3>
-        <ul>
-          <li>Level II Certification: Social Listening (Meltwater)</li>
-          <li>AI Workflow Automation</li>
-          <li>English (bilingual), Hindi, Gujarati</li>
-        </ul>
+        <p class="name" style="margin-top:16px">Certifications</p>
+        <p>Level II Certification: Social Listening (Meltwater)<br>AI Workflow Automation</p>
       </div>
     </div>
   </section>
@@ -451,6 +478,9 @@ footer a { color: var(--muted); }
 <script>
 (function () {
   var root = document.documentElement;
+  root.classList.add("js");
+
+  /* Light by default; dark only after a visitor chooses it */
   var toggle = document.getElementById("theme-toggle");
   function setTheme(t) {
     if (t === "dark") root.setAttribute("data-theme", "dark");
@@ -468,14 +498,81 @@ footer a { color: var(--muted); }
     try { localStorage.setItem("theme", next); } catch (e) {}
   });
 
+  /* Salesbuddy swipe counter */
   var swipe = document.getElementById("swipe");
-  var count = document.getElementById("swipe-count");
-  var slides = swipe.querySelectorAll("figure").length;
+  var swipeCount = document.getElementById("swipe-count");
+  var swipeSlides = swipe.querySelectorAll("figure").length;
   swipe.addEventListener("scroll", function () {
     var i = Math.round(swipe.scrollLeft / (swipe.firstElementChild.offsetWidth + 16));
-    count.textContent = (Math.min(i, slides - 1) + 1) + " / " + slides;
+    swipeCount.textContent = (Math.min(i, swipeSlides - 1) + 1) + " / " + swipeSlides;
   }, { passive: true });
 
+  /* Film-strip timeline */
+  var strip = document.getElementById("strip");
+  var frames = Array.prototype.slice.call(strip.querySelectorAll(".frame"));
+  var fill = document.getElementById("reel-fill");
+  var reelCount = document.getElementById("reel-count");
+  var playBtn = document.getElementById("reel-play");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function currentIndex() {
+    var center = strip.scrollLeft + strip.clientWidth / 2;
+    var best = 0, bestDist = Infinity;
+    frames.forEach(function (f, i) {
+      var mid = f.offsetLeft + f.offsetWidth / 2;
+      var d = Math.abs(mid - center);
+      if (d < bestDist) { bestDist = d; best = i; }
+    });
+    return best;
+  }
+  function update() {
+    var max = strip.scrollWidth - strip.clientWidth;
+    fill.style.width = (max > 0 ? (strip.scrollLeft / max) * 100 : 100) + "%";
+    reelCount.textContent = "Frame " + (currentIndex() + 1) + " of " + frames.length;
+  }
+  strip.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
+
+  /* Reveal frames as they come into view (visible without JS) */
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, { root: strip, threshold: 0.35 });
+    frames.forEach(function (f) { io.observe(f); });
+  } else {
+    frames.forEach(function (f) { f.classList.add("in"); });
+  }
+
+  /* Play: advances one frame at a time, stops on any user interaction */
+  var timer = null;
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+    playBtn.textContent = "Play reel";
+    playBtn.setAttribute("aria-pressed", "false");
+  }
+  function go(i) {
+    var f = frames[i];
+    strip.scrollTo({ left: f.offsetLeft - (strip.clientWidth - f.offsetWidth) / 2, behavior: "smooth" });
+  }
+  playBtn.addEventListener("click", function () {
+    if (timer) { stop(); return; }
+    playBtn.textContent = "Pause";
+    playBtn.setAttribute("aria-pressed", "true");
+    timer = setInterval(function () {
+      var next = currentIndex() + 1;
+      if (next >= frames.length) { stop(); go(0); return; }
+      go(next);
+    }, 2600);
+  });
+  ["pointerdown", "wheel", "touchstart", "keydown"].forEach(function (ev) {
+    strip.addEventListener(ev, stop, { passive: true });
+  });
+  if (reduce) playBtn.hidden = true;
+
+  /* Copy buttons */
   var status = document.getElementById("copy-status");
   function fallback(text) {
     var ta = document.createElement("textarea");
