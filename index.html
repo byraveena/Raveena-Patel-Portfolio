@@ -22,6 +22,8 @@
   --mint: #b9f2cf;
   --lav: #d9d4fb;
   --line: #dcd8ef;
+  --tag-bg: #d4f5e3; --tag-fg: #2e1f7a;
+  --band-bg: #bdeed3; --band-fg: #1b1640;
 }
 :root[data-theme="dark"] {
   --bg: #14122a;
@@ -33,6 +35,8 @@
   --mint: #1f4a3d;
   --lav: #2d2960;
   --line: #353162;
+  --tag-bg: #22463b; --tag-fg: #d4f5e3;
+  --band-bg: #22463b; --band-fg: #f1efff;
   color-scheme: dark;
 }
 
@@ -104,7 +108,7 @@ section { padding-block: 72px 0; }
   display: flex; flex-direction: column; gap: 12px;
 }
 .card.feature { grid-column: 1 / -1; background: var(--lav); border-color: transparent; }
-.card .tag { align-self: flex-start; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); background: var(--mint); padding: 4px 10px; border-radius: 999px; }
+.card .tag { align-self: flex-start; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tag-fg); background: var(--tag-bg); padding: 4px 10px; border-radius: 999px; }
 .card h3 { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1; margin: 0; color: var(--fg); text-wrap: balance; }
 .card .meta { font-size: 14px; color: var(--muted); margin: 0; }
 .card ul { margin: 0; padding-left: 18px; color: var(--fg); }
@@ -137,15 +141,15 @@ section { padding-block: 72px 0; }
 
 /* Contact */
 .contact {
-  margin-top: 80px; background: var(--mint); color: var(--fg); border-radius: 24px; padding: 48px 32px; margin-bottom: 48px;
+  margin-top: 80px; background: var(--band-bg); color: var(--band-fg); border-radius: 24px; padding: 48px 32px; margin-bottom: 48px;
 }
 .contact h2 { margin: 0 0 12px; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; }
-.contact p.lede { margin: 0 0 28px; max-width: 56ch; color: var(--fg); }
+.contact p.lede { margin: 0 0 28px; max-width: 56ch; color: var(--band-fg); }
 .contact .rows { display: grid; gap: 14px; }
 .contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 17px; }
-.contact .row span.k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; min-width: 72px; color: var(--fg); opacity: 0.75; }
-.contact a { color: var(--fg); font-weight: 700; word-break: break-word; }
-.mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--fg); background: transparent; color: var(--fg); cursor: pointer; }
+.contact .row span.k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; min-width: 72px; color: var(--band-fg); opacity: 0.75; }
+.contact a { color: var(--band-fg); font-weight: 700; word-break: break-word; }
+.mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--band-fg); background: transparent; color: var(--band-fg); cursor: pointer; }
 
 footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
 
@@ -259,6 +263,16 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         </ul>
         <p class="result">Grew 2K LinkedIn followers in one month.</p>
       </article>
+      <article class="card">
+        <span class="tag">Carousel strategy · 2026</span>
+        <h3>Dr. Tracy Dalgleish</h3>
+        <p class="meta">Social media strategist, through Be Connected Digital · Sept 2026 to present</p>
+        <ul>
+          <li>Short-form video editing and creative direction.</li>
+          <li>Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</li>
+        </ul>
+        <p class="result">First win within two weeks.</p>
+      </article>
     </div>
   </section>
 
@@ -298,6 +312,14 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
     <p class="label">Experience</p>
     <h2 id="exp-title" class="section-title display">Eight years of <em>building</em> brands.</h2>
     <ol class="timeline">
+      <li>
+        <div class="when">Sep 2026 to Present</div>
+        <div>
+          <p class="role">Social Media Strategist, Video Editing &amp; Creative Direction</p>
+          <p class="org">Be Connected Digital, for Dr. Tracy Dalgleish</p>
+          <p>Short-form video, creative direction, and social content strategy for Dr. Tracy Dalgleish&rsquo;s Instagram. Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</p>
+        </div>
+      </li>
       <li>
         <div class="when">Jun 2024 to Present · Ottawa, ON</div>
         <div>
