@@ -6,10 +6,10 @@
 <title>Raveena Patel | Brand &amp; Marketing Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@400;500;600;700&display=swap">
 <style>
-/* Layout: one column of editorial sections on a wide canvas. Hero sets the thesis,
-   a stats strip gives proof, then work cards, a typed timeline, and a quiet contact band. */
+/* Order: hero, stats, skills, experience timeline, education, then the work showcase last.
+   Type: Instrument Serif for headlines, Bricolage Grotesque for big numbers, DM Sans for body. */
 
 /* Palette tokens (light) */
 :root {
@@ -22,6 +22,7 @@
   --mint: #b9f2cf;
   --lav: #d9d4fb;
   --line: #dcd8ef;
+  --track: #ece9fb;
   --tag-bg: #d4f5e3; --tag-fg: #2e1f7a;
   --band-bg: #bdeed3; --band-fg: #1b1640;
 }
@@ -35,6 +36,7 @@
   --mint: #1f4a3d;
   --lav: #2d2960;
   --line: #353162;
+  --track: #2a2750;
   --tag-bg: #22463b; --tag-fg: #d4f5e3;
   --band-bg: #22463b; --band-fg: #f1efff;
   color-scheme: dark;
@@ -49,8 +51,6 @@ body {
   line-height: 1.6;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
   padding-right: max(16px, env(safe-area-inset-right, 0px));
-  padding-top: 0;
-  padding-bottom: 0;
   overflow-x: hidden;
 }
 img { max-width: 100%; }
@@ -59,49 +59,104 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 .wrap { max-width: 1040px; margin: 0 auto; }
 .display { font-family: "Instrument Serif", Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
-.label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); font-weight: 500; margin: 0 0 14px; }
+.label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); font-weight: 700; margin: 0 0 14px; }
 .num { font-variant-numeric: tabular-nums; }
+.big-num { font-family: "Bricolage Grotesque", system-ui, sans-serif; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 
 /* Top bar */
 .topbar {
   display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px;
-  padding-block: 22px;
+  padding-block: 22px; border-bottom: 1px solid var(--line);
 }
-.brand { font-weight: 700; color: var(--fg); text-decoration: none; }
-.nav { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.brand { color: var(--fg); text-decoration: none; font-size: 26px; }
+.nav { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
 .nav a { color: var(--muted); text-decoration: none; font-size: 15px; }
 .nav a:hover { color: var(--fg); }
 
 /* Hero */
-.hero { padding-block: 48px 56px; }
-.hero h1 { font-size: clamp(44px, 8vw, 92px); line-height: 1.02; margin: 0 0 28px; color: var(--fg); }
-.hero h1 em { color: var(--accent); }
+.hero { padding-block: 56px 44px; }
+.hero h1 { font-size: clamp(44px, 8vw, 88px); line-height: 1.02; margin: 0 0 24px; color: var(--fg); }
+.hero h1 em { color: var(--accent); font-style: italic; }
 .hero .role { font-size: 18px; color: var(--fg); margin: 0 0 12px; font-weight: 500; }
-.hero .lede { max-width: 62ch; color: var(--muted); font-size: 18px; margin: 0 0 32px; }
+.hero .lede { max-width: 62ch; color: var(--muted); font-size: 18px; margin: 0 0 30px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .btn {
-  display: inline-block; padding: 12px 20px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 500;
+  display: inline-block; padding: 12px 22px; border-radius: 999px; font: inherit; font-size: 15px; font-weight: 600;
   text-decoration: none; border: 1px solid var(--accent); cursor: pointer; background: transparent; color: var(--accent);
 }
 .btn.solid { background: var(--accent); color: var(--on-accent); }
 .btn:hover { filter: brightness(1.08); }
-.copy-status { font-size: 14px; color: var(--muted); align-self: center; min-height: 1em; }
+.copy-status { font-size: 14px; color: var(--muted); min-height: 1em; }
 
-/* Stats strip */
+/* Stats strip (dark panel in light mode, light panel in dark mode) */
 .stats {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px;
-  background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  background: var(--fg); color: var(--bg); border-radius: 20px; overflow: hidden; margin-top: 36px;
 }
-.stat { background: var(--surface); padding: 22px 20px; min-width: 0; }
-.stat .value { font-family: "Instrument Serif", Georgia, serif; font-size: clamp(32px, 4vw, 44px); line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
-.stat .caption { font-size: 14px; color: var(--muted); margin-top: 8px; }
+.stat { padding: 26px 24px; border-right: 1px solid color-mix(in srgb, var(--bg) 18%, transparent); min-width: 0; }
+.stat:last-child { border-right: 0; }
+.stat .value { font-family: "Bricolage Grotesque", system-ui, sans-serif; font-weight: 700; font-size: clamp(34px, 4.4vw, 48px); line-height: 1; color: color-mix(in srgb, var(--accent) 70%, var(--bg)); font-variant-numeric: tabular-nums; }
+.stat .caption { font-size: 14px; margin-top: 10px; line-height: 1.4; opacity: 0.85; }
 
 /* Sections */
-section { padding-block: 72px 0; }
-.section-title { font-size: clamp(34px, 5vw, 52px); line-height: 1.05; margin: 0 0 32px; }
-.section-title em { color: var(--accent); }
+section { padding-top: 84px; }
+.section-title { font-size: clamp(36px, 5vw, 56px); line-height: 1.05; margin: 0 0 32px; }
+.section-title em { color: var(--accent); font-style: italic; }
 
-/* Work */
+/* Reveal on scroll (only when JS is on) */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
+
+/* Skills */
+.skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; min-width: 0; }
+.skill-card h3 { margin: 0 0 4px; font-size: 17px; }
+.skill-card .d { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
+.bar { margin: 14px 0; }
+.bar-head { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; gap: 12px; }
+.bar-head b { font-family: "Bricolage Grotesque", sans-serif; color: var(--accent); }
+.track { height: 10px; background: var(--track); border-radius: 999px; overflow: hidden; }
+.fill { height: 100%; width: 0; background: var(--accent); border-radius: 999px; transition: width 1.1s cubic-bezier(.2,.7,.2,1); }
+.stars-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+.stars-row:last-child { border-bottom: 0; }
+.stars { color: var(--accent); letter-spacing: 3px; font-size: 17px; white-space: nowrap; }
+.stars .off { color: var(--line); }
+.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--fg); }
+.pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* Experience timeline: sticky year rail on the left, newest first */
+.exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
+.rail { position: sticky; top: 28px; align-self: start; }
+.rail .now-label { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin: 0 0 6px; }
+.rail .now-year { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rail-track { position: relative; margin-top: 18px; height: 3px; background: var(--line); border-radius: 99px; overflow: hidden; }
+.rail-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--accent); }
+.timeline { list-style: none; margin: 0; padding: 0; position: relative; }
+.timeline::before { content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--line); }
+.timeline li { position: relative; padding: 0 0 26px 28px; }
+.timeline li::before {
+  content: ""; position: absolute; left: -6px; top: 26px; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--bg); border: 3px solid var(--line); transition: border-color .4s, background .4s;
+}
+.timeline li.active::before { border-color: var(--accent); background: var(--accent); }
+.entry { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px 22px; transition: border-color .4s, box-shadow .4s, opacity .4s; opacity: .6; }
+.timeline li.active .entry { opacity: 1; border-color: var(--accent); box-shadow: 0 8px 24px rgba(90,59,181,.12); }
+.entry .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.entry .role { font-weight: 700; color: var(--fg); margin: 4px 0 0; font-size: 17px; }
+.entry .org { color: var(--accent); margin: 2px 0 8px; font-size: 15px; font-weight: 500; }
+.entry p { margin: 0; color: var(--muted); font-size: 15px; }
+.timeline li.active .entry p { color: var(--fg); }
+
+/* Facts */
+.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; min-width: 0; }
+.fact h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 600; }
+.fact p, .fact li { margin: 0 0 8px; font-size: 15px; }
+.fact ul { margin: 0; padding-left: 18px; }
+.fact .name { font-weight: 700; color: var(--fg); margin: 0; }
+
+/* Work showcase cards */
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .card {
   background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px; min-width: 0;
@@ -115,35 +170,40 @@ section { padding-block: 72px 0; }
 .card li { margin-bottom: 6px; }
 .card .result { font-size: 15px; font-weight: 700; color: var(--accent); margin: auto 0 0; padding-top: 6px; }
 
-/* Experience timeline */
-.timeline { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.timeline li {
-  display: grid; grid-template-columns: minmax(150px, 210px) minmax(0, 1fr); gap: 8px 28px;
-  padding-block: 22px; border-bottom: 1px solid var(--line);
+/* Case study carousel: swipeable slides, dots instead of page numbers */
+.carousel { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
+.carousel::-webkit-scrollbar { display: none; }
+.slide {
+  flex: 0 0 min(300px, 78%); aspect-ratio: 1 / 1; scroll-snap-align: start; border-radius: 18px; padding: 22px;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 12px; position: relative; overflow: hidden;
 }
-.timeline .when { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
-.timeline .role { font-weight: 700; color: var(--fg); margin: 0; }
-.timeline .org { color: var(--accent); margin: 0 0 6px; font-size: 15px; }
-.timeline p { margin: 0; color: var(--muted); font-size: 15px; }
+.slide .k { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; opacity: .8; }
+.slide .big-num { font-size: 66px; line-height: 1; }
+.slide h3 { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0; }
+.slide p { margin: 0; font-size: 14px; line-height: 1.45; }
+.s-dark { background: var(--fg); color: var(--bg); }
+.s-dark .big-num { color: color-mix(in srgb, var(--accent) 70%, var(--bg)); }
+.s-lav { background: var(--lav); color: var(--fg); }
+.s-mint { background: var(--band-bg); color: var(--band-fg); }
+.s-proof { background: var(--surface); color: var(--fg); border: 1px solid var(--line); }
+.proof-box { flex: 1; border: 2px dashed var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; font-size: 14px; color: var(--accent); }
+.dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
+.dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line); transition: background .3s, transform .3s; }
+.dots span.on { background: var(--accent); transform: scale(1.25); }
 
-/* Skills */
-.skills { display: flex; flex-wrap: wrap; gap: 10px; }
-.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--fg); }
-.pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-
-/* Two-column facts */
-.facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.fact { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; min-width: 0; }
-.fact h3 { margin: 0 0 10px; font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em; color: var(--muted); font-weight: 500; }
-.fact p, .fact li { margin: 0 0 8px; font-size: 15px; }
-.fact ul { margin: 0; padding-left: 18px; }
-.fact .name { font-weight: 700; color: var(--fg); margin: 0; }
+/* Live posts */
+.posts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.post { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.post .tag { align-self: flex-start; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--tag-fg); background: var(--tag-bg); padding: 4px 10px; border-radius: 999px; }
+.post h3 { margin: 4px 0 0; font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-size: 24px; }
+.post a { font-weight: 600; text-decoration: none; }
 
 /* Contact */
 .contact {
-  margin-top: 80px; background: var(--band-bg); color: var(--band-fg); border-radius: 24px; padding: 48px 32px; margin-bottom: 48px;
+  margin-top: 84px; background: var(--band-bg); color: var(--band-fg); border-radius: 24px; padding: 48px 36px; margin-bottom: 40px;
 }
-.contact h2 { margin: 0 0 12px; font-size: clamp(36px, 5vw, 56px); line-height: 1.05; }
+.contact h2 { margin: 0 0 12px; font-size: clamp(38px, 5.4vw, 60px); line-height: 1.04; }
+.contact h2 em { font-style: italic; }
 .contact p.lede { margin: 0 0 28px; max-width: 56ch; color: var(--band-fg); }
 .contact .rows { display: grid; gap: 14px; }
 .contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 17px; }
@@ -151,35 +211,46 @@ section { padding-block: 72px 0; }
 .contact a { color: var(--band-fg); font-weight: 700; word-break: break-word; }
 .mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--band-fg); background: transparent; color: var(--band-fg); cursor: pointer; }
 
-footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
+footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
+.theme-toggle { font: inherit; font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
 
 /* Responsive */
 @media (max-width: 860px) {
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .work-grid, .facts { grid-template-columns: minmax(0, 1fr); }
+  .stat:nth-child(2) { border-right: 0; }
+  .stat:nth-child(-n+2) { border-bottom: 1px solid color-mix(in srgb, var(--bg) 18%, transparent); }
+  .skill-grid, .work-grid, .facts { grid-template-columns: minmax(0, 1fr); }
   .card.feature { grid-column: auto; }
-  .timeline li { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .posts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .exp { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .rail { position: static; }
+  .rail .now-year { font-size: 40px; }
 }
-@media (max-width: 420px) {
-  .hero { padding-block: 32px 40px; }
+@media (max-width: 480px) {
+  .hero { padding-block: 36px 32px; }
   .card { padding: 22px; }
   .contact { padding: 32px 22px; }
+  .posts { grid-template-columns: minmax(0, 1fr); }
+  .stat { padding: 20px 18px; }
+  .stat .value { font-size: 34px; }
 }
-@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; transition: none !important; } }
-.theme-toggle { font: inherit; font-size: 14px; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); cursor: pointer; }
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
 </style>
-
 </head>
 <body>
 <header class="wrap topbar">
-  <a class="brand display" href="#top" style="font-size:24px">Raveena Patel</a>
+  <a class="brand display" href="#top">Raveena Patel</a>
   <nav class="nav" aria-label="Sections">
-    <a href="#work">Work</a>
-    <a href="#live">Live work</a>
-    <a href="#experience">Experience</a>
     <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#work">Work</a>
+    <a href="#case">Case study</a>
+    <a href="#live">Posts</a>
     <a href="#contact">Contact</a>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
+    <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
   </nav>
 </header>
 
@@ -196,213 +267,17 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
   </div>
 
   <div class="stats" role="list">
-    <div class="stat" role="listitem"><div class="value">1M+</div><div class="caption">Views on anchor video content</div></div>
-    <div class="stat" role="listitem"><div class="value">1M+</div><div class="caption">Followers as part of the Our Vadodara core team</div></div>
-    <div class="stat" role="listitem"><div class="value">3M+</div><div class="caption">Followers across PayTm campaigns</div></div>
-    <div class="stat" role="listitem"><div class="value">20K+</div><div class="caption">Professional LinkedIn community</div></div>
+    <div class="stat reveal" role="listitem"><div class="value">1M+</div><div class="caption">Views on anchor video content</div></div>
+    <div class="stat reveal" role="listitem"><div class="value">1M+</div><div class="caption">Followers as part of the Our Vadodara core team</div></div>
+    <div class="stat reveal" role="listitem"><div class="value">3M+</div><div class="caption">Followers across PayTm campaigns</div></div>
+    <div class="stat reveal" role="listitem"><div class="value">20K+</div><div class="caption">Professional LinkedIn community</div></div>
   </div>
 
-  <section id="work" aria-labelledby="work-title">
-    <p class="label">Selected work</p>
-    <h2 id="work-title" class="section-title display">Campaigns that <em>moved</em> audiences.</h2>
-    <div class="work-grid">
-      <article class="card feature">
-        <span class="tag">Organic growth</span>
-        <h3>Our Vadodara</h3>
-        <p class="meta">Graphic Designer &amp; Content Writer · 2017 to 2020</p>
-        <ul>
-          <li>Core team member who scaled the regional media platform to over 1M followers.</li>
-          <li>Created viral visuals, interactive infographics, and story-first posts for social.</li>
-          <li>Named a Facebook Community Leader in 2019 and 2020.</li>
-        </ul>
-        <p class="result">Grew social media from 100K to 1M+ followers.</p>
-      </article>
-
-      <article class="card">
-        <span class="tag">Video &amp; reels</span>
-        <h3>PayTm x Adert</h3>
-        <p class="meta">Digital Marketing Manager · 2020 to 2022</p>
-        <ul>
-          <li>Led the core team on regional marketing with a listed company.</li>
-          <li>Wrote and directed YouTube and reel scripts for advertisements.</li>
-        </ul>
-        <p class="result">3M+ followers across YouTube and Instagram.</p>
-      </article>
-
-      <article class="card">
-        <span class="tag">Rebrand</span>
-        <h3>Anjoy x Adert</h3>
-        <p class="meta">Digital Marketing Manager · 2021 to 2022</p>
-        <ul>
-          <li>Designed all of the restaurant&rsquo;s social media designs and a full brand kit.</li>
-          <li>Drove steady foot traffic to the business each month.</li>
-        </ul>
-        <p class="result">Grew the account to 20K+ followers.</p>
-      </article>
-
-      <article class="card">
-        <span class="tag">Brand strategy</span>
-        <h3>FenceScape</h3>
-        <p class="meta">Brand Strategist, consulting project · 2025</p>
-        <ul>
-          <li>Surveyed 29 homeowners (21 completed) to shape the plan.</li>
-          <li>Built a 12-month marketing plan with five tactics: landing page, social, AI search, referrals, and partnerships.</li>
-          <li>Created the visual templates and pitch deck for a Canadian fencing company.</li>
-        </ul>
-        <p class="result">Won the team pitch and top honours in the capstone evaluation.</p>
-        <p class="meta" style="font-size:13px">Targets in the plan are projections, not results.</p>
-      </article>
-
-      <article class="card">
-        <span class="tag">Startup brand</span>
-        <h3>SalesBuddy</h3>
-        <p class="meta">Social Media Strategist, volunteer · 2025</p>
-        <ul>
-          <li>Created the visual brand identity from scratch for a sales startup.</li>
-          <li>Scripted, edited, and automated its social media marketing.</li>
-        </ul>
-        <p class="result">Grew 2K LinkedIn followers in one month.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Carousel strategy · 2026</span>
-        <h3>Health and wellness client</h3>
-        <p class="meta">Social media strategist, contract · Sept 2026 to present</p>
-        <ul>
-          <li>Short-form video editing and creative direction.</li>
-          <li>Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</li>
-        </ul>
-        <p class="result">570K+ audience, and the first win within two weeks.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="case" aria-labelledby="case-title">
-    <p class="label">Case study · 2026</p>
-    <h2 id="case-title" class="section-title display">Carousels that <em>took off.</em></h2>
-    <div class="work-grid">
-      <article class="card">
-        <span class="tag">Challenge</span>
-        <h3>Grow an audience and the business behind it</h3>
-        <p class="meta">Health and wellness client · social media strategy</p>
-        <p>The client needed a clear Instagram strategy that could grow the audience and support the business.</p>
-      </article>
-      <article class="card">
-        <span class="tag">Strategy</span>
-        <h3>Carousels first, then short-form video</h3>
-        <ul>
-          <li>Carousels were the first strategy we launched.</li>
-          <li>Short-form video editing and creative direction followed.</li>
-          <li>Social content strategy for every post.</li>
-        </ul>
-      </article>
-      <article class="card">
-        <span class="tag">Result</span>
-        <h3>570K+ audience</h3>
-        <p class="meta">First win within two weeks of launch.</p>
-        <p class="result">The carousels are performing strongly.</p>
-      </article>
-    </div>
-  </section>
-
-  <section id="live" aria-labelledby="live-title">
-    <p class="label">Live work</p>
-    <h2 id="live-title" class="section-title display">Watch the <em>posts.</em></h2>
-    <div class="work-grid">
-      <article class="card">
-        <span class="tag">Reel</span>
-        <h3>Instagram reel</h3>
-        <p class="meta"><a href="https://www.instagram.com/reel/DXj7E-EgRQe/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p>
-      </article>
-      <article class="card">
-        <span class="tag">Post</span>
-        <h3>Instagram post</h3>
-        <p class="meta"><a href="https://www.instagram.com/p/Co4hctAtSws/?img_index=1" target="_blank" rel="noopener">View on Instagram ↗</a></p>
-      </article>
-      <article class="card">
-        <span class="tag">Reel</span>
-        <h3>Instagram reel</h3>
-        <p class="meta"><a href="https://www.instagram.com/reel/DeXAYZVI6ie/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p>
-      </article>
-      <article class="card">
-        <span class="tag">Influencer marketing</span>
-        <h3>Instagram post</h3>
-        <p class="meta"><a href="https://www.instagram.com/p/DcvzcNLI62U/" target="_blank" rel="noopener">View on Instagram ↗</a></p>
-      </article>
-      <article class="card">
-        <span class="tag">Influencer marketing</span>
-        <h3>Instagram post</h3>
-        <p class="meta"><a href="https://www.instagram.com/p/DQbqQO8EZcc/" target="_blank" rel="noopener">View on Instagram ↗</a></p>
-      </article>
-    </div>
-  </section>
-
-  <section id="experience" aria-labelledby="exp-title">
-    <p class="label">Experience</p>
-    <h2 id="exp-title" class="section-title display">Eight years of <em>building</em> brands.</h2>
-    <ol class="timeline">
-      <li>
-        <div class="when">Sep 2026 to Present</div>
-        <div>
-          <p class="role">Social Media Strategist, Video Editing &amp; Creative Direction</p>
-          <p class="org">Contract, health and wellness client</p>
-          <p>Short-form video, creative direction, and social content strategy for a health and wellness client&rsquo;s Instagram. Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Jun 2024 to Present · Ottawa, ON</div>
-        <div>
-          <p class="role">Esthetician &amp; Client Experience Specialist</p>
-          <p class="org">Caryl Baker Visage</p>
-          <p>Direct-to-consumer retail, product positioning, and the sales lifecycle. Turned product knowledge into clear, trust-building advice.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Jun 2025 to Nov 2025 · Ottawa, ON</div>
-        <div>
-          <p class="role">Brand Manager (capstone project)</p>
-          <p class="org">FenceScape</p>
-          <p>Market research, a marketing budget plan, and visual asset templates for a small business.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Mar 2016 to Apr 2024 · India (freelance)</div>
-        <div>
-          <p class="role">Freelance Social Media &amp; Brand Growth</p>
-          <p class="org">Algurutheme</p>
-          <p>Multi-platform growth strategy across shifting algorithms, from ideation through copy, visuals, and community. Used audience data to refine organic reach. Freelance social posts for Sommeliers Business and Bartenders Business.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Feb 2023 to Nov 2023 · Hybrid</div>
-        <div>
-          <p class="role">Digital Marketing Executive</p>
-          <p class="org">Beverage Trade Network</p>
-          <p>SEO-driven content and acquisition that lifted qualified web traffic. Built a 20K+ LinkedIn community through curation and data-led optimization.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Feb 2020 to Feb 2022 · Vadodara</div>
-        <div>
-          <p class="role">Digital Marketing Manager</p>
-          <p class="org">Adert Advertising &amp; Marketing</p>
-          <p>Led multi-client social strategy and supervised creative teams, averaging 100K+ views per anchor post. Tested creative to lower acquisition costs.</p>
-        </div>
-      </li>
-      <li>
-        <div class="when">Jan 2017 to Feb 2020 · Vadodara</div>
-        <div>
-          <p class="role">Graphic Designer &amp; Creative Content Lead</p>
-          <p class="org">OURVADODARA</p>
-          <p>Foundational creative strategist who helped scale the platform to 1M+ followers and grew agency clients&rsquo; revenue with story-first content.</p>
-        </div>
-      </li>
-    </ol>
-  </section>
-
+  <!-- 1. Skills, before experience. Levels below are PLACEHOLDERS to confirm before publishing. -->
   <section id="skills" aria-labelledby="skills-title">
     <p class="label">Skills</p>
     <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
-    <div class="skills">
+    <div class="pills reveal">
       <span class="pill hi">Brand Strategy &amp; Activation</span>
       <span class="pill hi">Story-First Content Design</span>
       <span class="pill hi">Organic Growth Strategy</span>
@@ -421,10 +296,82 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
     </div>
   </section>
 
+  <!-- 2. Experience: newest first, scrolls back through time -->
+  <section id="experience" aria-labelledby="exp-title">
+    <p class="label">Experience</p>
+    <h2 id="exp-title" class="section-title display">Eight years of <em>building</em> brands.</h2>
+    <div class="exp">
+      <aside class="rail" aria-hidden="true">
+        <p class="now-label">You are in</p>
+        <div class="now-year" id="rail-year">2026</div>
+        <div class="rail-track"><div class="rail-fill" id="rail-fill"></div></div>
+      </aside>
+      <ol class="timeline" id="timeline">
+        <li data-year="2026">
+          <div class="entry">
+            <div class="when">Sep 2026 to Present</div>
+            <p class="role">Social Media Strategist, Video Editing &amp; Creative Direction</p>
+            <p class="org">Contract, health and wellness client</p>
+            <p>Short-form video, creative direction, and social content strategy for a health and wellness client&rsquo;s Instagram. Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</p>
+          </div>
+        </li>
+        <li data-year="2025">
+          <div class="entry">
+            <div class="when">Jun 2025 to Nov 2025 · Ottawa, ON</div>
+            <p class="role">Brand Manager (capstone project)</p>
+            <p class="org">FenceScape</p>
+            <p>Market research, a marketing budget plan, and visual asset templates for a small business.</p>
+          </div>
+        </li>
+        <li data-year="2024">
+          <div class="entry">
+            <div class="when">Jun 2024 to Present · Ottawa, ON</div>
+            <p class="role">Esthetician &amp; Client Experience Specialist</p>
+            <p class="org">Caryl Baker Visage</p>
+            <p>Direct-to-consumer retail, product positioning, and the sales lifecycle. Turned product knowledge into clear, trust-building advice.</p>
+          </div>
+        </li>
+        <li data-year="2024">
+          <div class="entry">
+            <div class="when">Mar 2016 to Apr 2024 · India (freelance)</div>
+            <p class="role">Freelance Social Media &amp; Brand Growth</p>
+            <p class="org">Algurutheme</p>
+            <p>Multi-platform growth strategy across shifting algorithms, from ideation through copy, visuals, and community. Used audience data to refine organic reach. Freelance social posts for Sommeliers Business and Bartenders Business.</p>
+          </div>
+        </li>
+        <li data-year="2023">
+          <div class="entry">
+            <div class="when">Feb 2023 to Nov 2023 · Hybrid</div>
+            <p class="role">Digital Marketing Executive</p>
+            <p class="org">Beverage Trade Network</p>
+            <p>SEO-driven content and acquisition that lifted qualified web traffic. Built a 20K+ LinkedIn community through curation and data-led optimization.</p>
+          </div>
+        </li>
+        <li data-year="2022">
+          <div class="entry">
+            <div class="when">Feb 2020 to Feb 2022 · Vadodara</div>
+            <p class="role">Digital Marketing Manager</p>
+            <p class="org">Adert Advertising &amp; Marketing</p>
+            <p>Led multi-client social strategy and supervised creative teams, averaging 100K+ views per anchor post. Tested creative to lower acquisition costs.</p>
+          </div>
+        </li>
+        <li data-year="2017">
+          <div class="entry">
+            <div class="when">Jan 2017 to Feb 2020 · Vadodara</div>
+            <p class="role">Graphic Designer &amp; Creative Content Lead</p>
+            <p class="org">OURVADODARA</p>
+            <p>Foundational creative strategist who helped scale the platform to 1M+ followers and grew agency clients&rsquo; revenue with story-first content.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 3. Education -->
   <section aria-labelledby="facts-title">
     <p class="label" id="facts-title">Education &amp; more</p>
     <div class="facts">
-      <div class="fact">
+      <div class="fact reveal">
         <h3>Education</h3>
         <p class="name">Postgraduate in Brand Management</p>
         <p>Algonquin College of Applied Arts and Technology, Ottawa</p>
@@ -432,7 +379,7 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
         <p class="name" style="margin-top:14px">Bachelor of Mass Media (Animation &amp; Interactive Media)</p>
         <p>Tilak Maharashtra Vidyapeeth, Pune</p>
       </div>
-      <div class="fact">
+      <div class="fact reveal">
         <h3>Certifications &amp; languages</h3>
         <ul>
           <li>Level II Certification: Social Listening, Meltwater</li>
@@ -441,6 +388,139 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
           <li>Former national-level judo athlete</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <!-- 4. Work showcase, last -->
+  <section id="work" aria-labelledby="work-title">
+    <p class="label">Selected work</p>
+    <h2 id="work-title" class="section-title display">Campaigns that <em>moved</em> audiences.</h2>
+    <div class="work-grid">
+      <article class="card feature reveal">
+        <span class="tag">Organic growth</span>
+        <h3>Our Vadodara</h3>
+        <p class="meta">Graphic Designer &amp; Content Writer · 2017 to 2020</p>
+        <ul>
+          <li>Core team member who scaled the regional media platform to over 1M followers.</li>
+          <li>Created viral visuals, interactive infographics, and story-first posts for social.</li>
+          <li>Named a Facebook Community Leader in 2019 and 2020.</li>
+        </ul>
+        <p class="result">Grew social media from 100K to 1M+ followers.</p>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Video &amp; reels</span>
+        <h3>PayTm x Adert</h3>
+        <p class="meta">Digital Marketing Manager · 2020 to 2022</p>
+        <ul>
+          <li>Led the core team on regional marketing with a listed company.</li>
+          <li>Wrote and directed YouTube and reel scripts for advertisements.</li>
+        </ul>
+        <p class="result">3M+ followers across YouTube and Instagram.</p>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Rebrand</span>
+        <h3>Anjoy x Adert</h3>
+        <p class="meta">Digital Marketing Manager · 2021 to 2022</p>
+        <ul>
+          <li>Designed all of the restaurant&rsquo;s social media designs and a full brand kit.</li>
+          <li>Drove steady foot traffic to the business each month.</li>
+        </ul>
+        <p class="result">Grew the account to 20K+ followers.</p>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Brand strategy</span>
+        <h3>FenceScape</h3>
+        <p class="meta">Brand Strategist, consulting project · 2025</p>
+        <ul>
+          <li>Surveyed 29 homeowners (21 completed) to shape the plan.</li>
+          <li>Built a 12-month marketing plan with five tactics: landing page, social, AI search, referrals, and partnerships.</li>
+          <li>Created the visual templates and pitch deck for a Canadian fencing company.</li>
+        </ul>
+        <p class="result">Won the team pitch and top honours in the capstone evaluation.</p>
+        <p class="meta" style="font-size:13px">Targets in the plan are projections, not results.</p>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Startup brand</span>
+        <h3>SalesBuddy</h3>
+        <p class="meta">Social Media Strategist, volunteer · 2025</p>
+        <ul>
+          <li>Created the visual brand identity from scratch for a sales startup.</li>
+          <li>Scripted, edited, and automated its social media marketing.</li>
+        </ul>
+        <p class="result">Grew 2K LinkedIn followers in one month.</p>
+      </article>
+      <article class="card reveal">
+        <span class="tag">Carousel strategy · 2026</span>
+        <h3>Health and wellness client</h3>
+        <p class="meta">Social media strategist, contract · Sept 2026 to present</p>
+        <ul>
+          <li>Short-form video editing and creative direction.</li>
+          <li>Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</li>
+        </ul>
+        <p class="result">570K+ audience, and the first win within two weeks.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="case" aria-labelledby="case-title">
+    <p class="label">Case study · 2026</p>
+    <h2 id="case-title" class="section-title display">Carousels that <em>took off.</em></h2>
+    <div class="carousel" id="carousel" aria-label="Case study slides, swipe to read">
+      <div class="slide s-dark">
+        <span class="k">Health and wellness client</span>
+        <div class="big-num">570K+</div>
+        <h3>Audience built with one strategy.</h3>
+        <p>Swipe to see the first move &rarr;</p>
+      </div>
+      <div class="slide s-lav">
+        <span class="k">The strategy</span>
+        <h3>Carousels first. Video came next.</h3>
+        <p>Carousels launched first, then short-form video editing and creative direction followed.</p>
+      </div>
+      <div class="slide s-mint">
+        <span class="k">The result</span>
+        <div class="big-num">2 weeks</div>
+        <h3>to the first win.</h3>
+        <p>Carousels are still performing strongly.</p>
+      </div>
+      <div class="slide s-dark">
+        <span class="k">Want the breakdown?</span>
+        <h3>Ask about the full carousel plan.</h3>
+        <p>Reach out by email or LinkedIn.</p>
+      </div>
+    </div>
+    <div class="dots" id="dots" aria-hidden="true"></div>
+  </section>
+
+  <section id="live" aria-labelledby="live-title">
+    <p class="label">Live work</p>
+    <h2 id="live-title" class="section-title display">Watch the <em>posts.</em></h2>
+    <div class="posts">
+      <article class="post reveal">
+        <span class="tag">Reel</span>
+        <h3>Instagram reel</h3>
+        <p class="meta"><a href="https://www.instagram.com/reel/DXj7E-EgRQe/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p>
+      </article>
+      <article class="post reveal">
+        <span class="tag">Post</span>
+        <h3>Instagram post</h3>
+        <p class="meta"><a href="https://www.instagram.com/p/Co4hctAtSws/?img_index=1" target="_blank" rel="noopener">View on Instagram ↗</a></p>
+      </article>
+      <article class="post reveal">
+        <span class="tag">Reel</span>
+        <h3>Instagram reel</h3>
+        <p class="meta"><a href="https://www.instagram.com/reel/DeXAYZVI6ie/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p>
+      </article>
+      <article class="post reveal">
+        <span class="tag">Influencer marketing</span>
+        <h3>Instagram post</h3>
+        <p class="meta"><a href="https://www.instagram.com/p/DcvzcNLI62U/" target="_blank" rel="noopener">View on Instagram ↗</a></p>
+      </article>
+      <article class="post reveal">
+        <span class="tag">Influencer marketing</span>
+        <h3>Instagram post</h3>
+        <p class="meta"><a href="https://www.instagram.com/p/DQbqQO8EZcc/" target="_blank" rel="noopener">View on Instagram ↗</a></p>
+      </article>
     </div>
   </section>
 
@@ -471,6 +551,10 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
 
 <script>
 (function () {
+  document.documentElement.classList.add("js");
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* Copy buttons */
   var status = document.getElementById("copy-status");
   function fallback(text) {
     var ta = document.createElement("textarea");
@@ -489,6 +573,67 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
       } else { fallback(text); done(); }
     });
   });
+
+  /* Reveal on scroll, skill bars fill when visible */
+  var revealEls = document.querySelectorAll(".reveal");
+  function fillBars(scope) {
+    scope.querySelectorAll(".fill").forEach(function (f) { f.style.width = f.getAttribute("data-w") + "%"; });
+  }
+  if ("IntersectionObserver" in window && !reduce) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          fillBars(e.target);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    revealEls.forEach(function (el) { io.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add("in"); });
+    document.querySelectorAll(".fill").forEach(function (f) { f.style.width = f.getAttribute("data-w") + "%"; });
+  }
+
+  /* Timeline: highlight the entry in view and update the year rail from present to past */
+  var items = document.querySelectorAll("#timeline li");
+  var railYear = document.getElementById("rail-year");
+  var railFill = document.getElementById("rail-fill");
+  var list = document.getElementById("timeline");
+  function setActive(li) {
+    items.forEach(function (x) { x.classList.toggle("active", x === li); });
+    if (li && railYear) railYear.textContent = li.getAttribute("data-year");
+  }
+  if ("IntersectionObserver" in window) {
+    var tio = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) setActive(e.target); });
+    }, { rootMargin: "-40% 0px -50% 0px" });
+    items.forEach(function (li) { tio.observe(li); });
+  }
+  setActive(items[0]);
+  function updateRail() {
+    if (!list || !railFill) return;
+    var r = list.getBoundingClientRect();
+    var total = r.height - window.innerHeight * 0.5;
+    var p = Math.min(1, Math.max(0, (window.innerHeight * 0.5 - r.top) / (total || 1)));
+    railFill.style.width = (p * 100) + "%";
+  }
+  window.addEventListener("scroll", updateRail, { passive: true });
+  updateRail();
+
+  /* Carousel dots (no page numbers) */
+  var car = document.getElementById("carousel");
+  var dotsWrap = document.getElementById("dots");
+  if (car && dotsWrap) {
+    var slides = car.querySelectorAll(".slide");
+    slides.forEach(function () { dotsWrap.appendChild(document.createElement("span")); });
+    var dots = dotsWrap.querySelectorAll("span");
+    dots[0].classList.add("on");
+    car.addEventListener("scroll", function () {
+      var i = Math.round(car.scrollLeft / (slides[0].offsetWidth + 14));
+      dots.forEach(function (d, k) { d.classList.toggle("on", k === Math.min(i, dots.length - 1)); });
+    }, { passive: true });
+  }
 })();
 </script>
 <script>
@@ -511,7 +656,5 @@ footer { padding-block: 24px 40px; font-size: 14px; color: var(--muted); }
   });
 })();
 </script>
-
-
 </body>
 </html>
