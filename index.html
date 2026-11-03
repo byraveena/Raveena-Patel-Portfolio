@@ -141,10 +141,10 @@ section { padding-top: 84px; }
 .vad-growth .vg-line::after { content: ""; position: absolute; right: -2px; top: -5px; border-left: 9px solid var(--accent); border-top: 6.5px solid transparent; border-bottom: 6.5px solid transparent; }
 .vad-growth .vg-dot { position: absolute; left: 0; top: -6px; width: 15px; height: 15px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
 
-.proof-stats { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: center; margin: 8px 0; }
-.proof-stats div { border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
-.proof-stats .big-num { display: block; font-size: 32px; line-height: 1; color: var(--accent); }
-.proof-stats span { font-size: 12px; color: var(--muted); }
+.proof-stats { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; margin: 8px 0; }
+.proof-stats div { display: flex; align-items: baseline; gap: 10px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
+.slide .proof-stats .big-num { font-size: 26px; line-height: 1; color: var(--accent); min-width: 66px; }
+.proof-stats span { font-size: 13px; color: var(--muted); }
 
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
