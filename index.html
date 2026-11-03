@@ -141,6 +141,11 @@ section { padding-top: 84px; }
 .vad-growth .vg-line::after { content: ""; position: absolute; right: -2px; top: -5px; border-left: 9px solid var(--accent); border-top: 6.5px solid transparent; border-bottom: 6.5px solid transparent; }
 .vad-growth .vg-dot { position: absolute; left: 0; top: -6px; width: 15px; height: 15px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
 
+.proof-stats { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-content: center; margin: 8px 0; }
+.proof-stats div { border: 1px solid var(--line); border-radius: 12px; padding: 12px; }
+.proof-stats .big-num { display: block; font-size: 32px; line-height: 1; color: var(--accent); }
+.proof-stats span { font-size: 12px; color: var(--muted); }
+
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
@@ -511,6 +516,15 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
         <span class="k">The strategy</span>
         <h3>Carousels first. Video came next.</h3>
         <p>Carousels launched first, then short-form video editing and creative direction followed.</p>
+      </div>
+      <div class="slide s-proof">
+        <span class="k" style="color:var(--muted)">The proof</span>
+        <div class="proof-stats">
+          <div><b class="big-num">152K</b><span>views on the carousel</span></div>
+          <div><b class="big-num">1K</b><span>saves</span></div>
+          <div><b class="big-num">626</b><span>sends</span></div>
+        </div>
+        <p>Real numbers from the carousel post.</p>
       </div>
       <div class="slide s-mint">
         <span class="k">The result</span>
