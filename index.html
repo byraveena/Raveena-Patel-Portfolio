@@ -119,6 +119,7 @@ section { padding-top: 84px; }
 .skill-card h3 { margin: 0 0 4px; font-size: 17px; }
 .skill-card .d { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
 .bar { margin: 14px 0; }
+.bar-note { margin: 8px 0 0; font-size: 13px; color: var(--muted); line-height: 1.45; }
 .bar-head { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; gap: 12px; }
 .bar-head b { font-family: "Fraunces", sans-serif; color: var(--accent); }
 .track { height: 10px; background: var(--track); border-radius: 999px; overflow: hidden; }
@@ -126,6 +127,7 @@ section { padding-top: 84px; }
 .stars-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
 .stars-row:last-child { border-bottom: 0; }
 .stars { color: var(--accent); letter-spacing: 3px; font-size: 17px; white-space: nowrap; }
+.sc { font-family: "Fraunces", Georgia, serif; font-size: 15px; letter-spacing: 0; margin-left: 6px; color: var(--fg); }
 .stars .off { color: var(--line); }
 .pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--fg); }
@@ -335,49 +337,58 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <div class="stat reveal" role="listitem"><div class="value">20K+</div><div class="caption">Professional LinkedIn community</div></div>
   </div>
 
-  <!-- 1. Skills, before experience. Ranked by focus (not measured levels). -->
+  <!-- 1. Skills, before experience. One scale for all: bars out of 10, capped at 9.9. Only skills at 7.5 or higher. -->
   <section id="skills" aria-labelledby="skills-title">
     <p class="label">Skills</p>
     <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
     <div class="skill-grid">
       <div class="skill-card reveal">
         <h3>Social media &amp; editing</h3>
-        <div class="bar"><div class="bar-head"><span>Short-form video (Reels, TikTok, YouTube Shorts)</span><b>100%</b></div><div class="track"><div class="fill" data-w="100"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Social media strategy</span><b>96%</b></div><div class="track"><div class="fill" data-w="96"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Organic growth (Instagram, TikTok, YouTube)</span><b>92%</b></div><div class="track"><div class="fill" data-w="92"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Content creation and storytelling</span><b>88%</b></div><div class="track"><div class="fill" data-w="88"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Video editing (CapCut, VN, InShot)</span><b>84%</b></div><div class="track"><div class="fill" data-w="84"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Canva design</span><b>80%</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Community management</span><b>76%</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
-<div class="bar"><div class="bar-head"><span>Influencer marketing</span><b>72%</b></div><div class="track"><div class="fill" data-w="72"></div></div></div>
-<div class="bar"><div class="bar-head"><span>SEO content</span><b>68%</b></div><div class="track"><div class="fill" data-w="68"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Short-form video production</span><b>9.9/10</b></div><div class="track"><div class="fill" data-w="99"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Social media strategy</span><b>9.6/10</b></div><div class="track"><div class="fill" data-w="96"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Organic growth</span><b>9.2/10</b></div><div class="track"><div class="fill" data-w="92"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Content creation and storytelling</span><b>8.8/10</b></div><div class="track"><div class="fill" data-w="88"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Video editing</span><b>8.4/10</b></div><div class="track"><div class="fill" data-w="84"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Creative production (Adobe Creative Cloud)</span><b>8.3/10</b></div><div class="track"><div class="fill" data-w="83"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Social media scheduling and analytics</span><b>8.2/10</b></div><div class="track"><div class="fill" data-w="82"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Graphic design</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Digital design and prototyping</span><b>7.8/10</b></div><div class="track"><div class="fill" data-w="78"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Community management</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Paid social campaigns</span><b>7.5/10</b></div><div class="track"><div class="fill" data-w="75"></div></div></div>
       </div>
       <div class="skill-card reveal">
         <h3>Management</h3>
-        <div class="stars-row"><span>Brand strategy and management</span><span class="stars" aria-label="ranked 10">★★★★★</span></div>
-<div class="stars-row"><span>Brand identity and brand guidelines</span><span class="stars" aria-label="ranked 11">★★★★<span class="off">★</span></span></div>
-<div class="stars-row"><span>Brand positioning</span><span class="stars" aria-label="ranked 12">★★★★<span class="off">★</span></span></div>
-<div class="stars-row"><span>Go-to-market strategy</span><span class="stars" aria-label="ranked 13">★★★<span class="off">★★</span></span></div>
-<div class="stars-row"><span>Cross-functional leadership</span><span class="stars" aria-label="ranked 14">★★★<span class="off">★★</span></span></div>
-<div class="stars-row"><span>Creative direction</span><span class="stars" aria-label="ranked 15">★★★<span class="off">★★</span></span></div>
+        <div class="bar"><div class="bar-head"><span>Brand strategy and management</span><b>9.9/10</b></div><div class="track"><div class="fill" data-w="99"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Brand identity and brand guidelines</span><b>9.0/10</b></div><div class="track"><div class="fill" data-w="90"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Brand positioning</span><b>8.5/10</b></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Team leadership (5–10 people)</span><b>8.5/10</b></div><div class="track"><div class="fill" data-w="85"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Go-to-market strategy</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Project management (regional content)</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Cross-functional leadership</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
       </div>
     </div>
     <div class="skill-card reveal" style="margin-top:20px">
-      <h3>Analytics &amp; paid ads</h3>
-      <div class="ring">
-        <div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 89%, var(--track) 0)"><span class="rc-in">89%</span></div>AI workflow automation</div>
-<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 80%, var(--track) 0)"><span class="rc-in">80%</span></div>Audience analytics</div>
-<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 75%, var(--track) 0)"><span class="rc-in">75%</span></div>Performance reporting</div>
-<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 70%, var(--track) 0)"><span class="rc-in">70%</span></div>Social listening (Meltwater)</div>
-<div class="ringc"><div class="c" style="background:conic-gradient(var(--accent) 60%, var(--track) 0)"><span class="rc-in">60%</span></div>Paid social campaigns</div>
-      </div>
+      <h3>Analytics &amp; AI</h3>
+        <div class="bar"><div class="bar-head"><span>AI workflow automation</span><b>8.9/10</b></div><div class="track"><div class="fill" data-w="89"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Audience analytics</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
+        <div class="bar"><div class="bar-head"><span>Performance reporting</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
     </div>
+    <div class="skill-card reveal" style="margin-top:20px">
+      <h3>Soft skills</h3>
+        <div class="bar"><div class="bar-head"><span>Communication and presentation</span><b>8.7/10</b></div><div class="track"><div class="fill" data-w="87"></div></div><p class="bar-note">B2B newsletters and editorial collateral (Beverage Trade Network); pitch presentations (FenceScape).</p></div>
+        <div class="bar"><div class="bar-head"><span>Client consultation</span><b>8.5/10</b></div><div class="track"><div class="fill" data-w="85"></div></div><p class="bar-note">Market research and pitch for FenceScape; skincare consultations at Caryl Baker Visage; freelance client work since 2016.</p></div>
+        <div class="bar"><div class="bar-head"><span>Cross-functional collaboration</span><b>8.3/10</b></div><div class="track"><div class="fill" data-w="83"></div></div><p class="bar-note">Cross-functional team leadership; supervised creative teams at Adert; teamwork on the FenceScape pitch.</p></div>
+        <div class="bar"><div class="bar-head"><span>Analytical problem-solving</span><b>8.2/10</b></div><div class="track"><div class="fill" data-w="82"></div></div><p class="bar-note">Cut client acquisition costs through creative testing at Adert; analysed organic reach at Algurutheme.</p></div>
+        <div class="bar"><div class="bar-head"><span>Adaptability</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div><p class="bar-note">Adjusted strategy across shifting algorithms over eight years at Algurutheme.</p></div>
+        <div class="bar"><div class="bar-head"><span>Stakeholder and partner management</span><b>7.9/10</b></div><div class="track"><div class="fill" data-w="79"></div></div><p class="bar-note">Managed partnerships in the cosmetics and wellness sectors (Caryl Baker Visage, per LinkedIn).</p></div>
+    </div>
+    <p class="langs" style="margin:16px 0 0;font-size:14px;color:var(--muted)">Languages: English, Hindi, Gujarati</p>
   </section>
 
   <!-- 2. Experience: newest first, scrolls back through time -->
   <section id="experience" aria-labelledby="exp-title">
     <p class="label">Experience</p>
-    <h2 id="exp-title" class="section-title display">Eight years of <em>building</em> brands.</h2>
+    <h2 id="exp-title" class="section-title display">Nine years of <em>building</em> brands.</h2>
     <div class="exp">
       <aside class="rail" aria-hidden="true">
         <p class="now-label">You are in</p>
@@ -406,15 +417,15 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
             <div class="when">Jun 2024 to Present · Ottawa, ON</div>
             <p class="role">Esthetician &amp; Client Experience Specialist</p>
             <p class="org">Caryl Baker Visage</p>
-            <p>Direct-to-consumer retail, product positioning, and the sales lifecycle. Turned product knowledge into clear, trust-building advice.</p>
+            <p>Client consultations and direct-to-consumer retail. Turned product knowledge into trust-building advice.</p>
           </div>
         </li>
         <li data-year="2024">
           <div class="entry">
             <div class="when">Mar 2016 to Apr 2024 · India (freelance)</div>
-            <p class="role">Freelance Social Media &amp; Brand Growth</p>
+            <p class="role">Social Media Manager</p>
             <p class="org">Algurutheme</p>
-            <p>Multi-platform growth strategy across shifting algorithms, from ideation through copy, visuals, and community. Used audience data to refine organic reach. Freelance social posts for Sommeliers Business and Bartenders Business.</p>
+            <p>As a social media manager, I managed brands on Instagram and other platforms. Multi-platform growth strategy across shifting algorithms, from ideation through copy, visuals, and community. Used audience data to refine organic reach. Freelance social posts for Sommeliers Business and Bartenders Business.</p>
           </div>
         </li>
         <li data-year="2023">
@@ -433,10 +444,18 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
             <p>Led multi-client social strategy and supervised creative teams, averaging 100K+ views per anchor post. Tested creative to lower acquisition costs.</p>
           </div>
         </li>
+        <li data-year="2022">
+          <div class="entry">
+            <div class="when">Mar 2022 to Sep 2022 · Vadodara</div>
+            <p class="role">Social Media Manager</p>
+            <p class="org">HashtagGoDigital</p>
+            <p>Designed and executed multi-platform social strategies, managed a team delivering digital content, and oversaw branding and visual asset projects.</p>
+          </div>
+        </li>
         <li data-year="2017">
           <div class="entry">
             <div class="when">Jan 2017 to Feb 2020 · Vadodara</div>
-            <p class="role">Graphic Designer &amp; Creative Content Lead</p>
+            <p class="role">Graphic Designer &amp; Content Writer</p>
             <p class="org">OURVADODARA</p>
             <p>Foundational creative strategist who helped scale the platform to 1M+ followers and grew agency clients&rsquo; revenue with story-first content.</p>
           </div>
@@ -452,10 +471,10 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
       <div class="fact reveal">
         <h3>Education</h3>
         <p class="name">Postgraduate in Brand Management</p>
-        <p>Algonquin College of Applied Arts and Technology, Ottawa</p>
+        <p>Algonquin College of Applied Arts and Technology, Ottawa · May 2024 to Dec 2025</p>
         <p>Dean&rsquo;s Honours List, all four terms</p>
-        <p class="name" style="margin-top:14px">Bachelor of Mass Media (Animation &amp; Interactive Media)</p>
-        <p>Tilak Maharashtra Vidyapeeth, Pune</p>
+        <p class="name" style="margin-top:14px">Bachelor of Mass Media</p>
+        <p>Tilak Vidyapeeth, Pune</p>
       </div>
       <div class="fact reveal">
         <h3>Certifications &amp; languages</h3>
