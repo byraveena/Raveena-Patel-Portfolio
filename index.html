@@ -180,6 +180,12 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
 .chip { display: inline-block; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); font-weight: 700; font-size: 15px; text-decoration: none; }
 .chip:hover { background: var(--accent); color: var(--on-accent); }
 
+.card.feature { min-height: 420px; justify-content: center; }
+.vad-growth { max-width: none; align-items: flex-end; margin: 22px 0 8px; }
+.vad-growth .vg-to { font-size: 64px; }
+.vad-growth .vg-year { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
+.vad-growth .vg-line { align-self: center; margin-bottom: 26px; }
+
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
@@ -499,7 +505,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
           <li>Created viral visuals, interactive infographics, and story-first posts for social.</li>
           <li>Named a Facebook Community Leader in 2019 and 2020.</li>
         </ul>
-        <div class="vad-growth" aria-hidden="true"><span class="vg-from">100K</span><span class="vg-line"><span class="vg-dot"></span></span><span class="vg-to">1M+</span></div>
+        <div class="vad-growth" aria-hidden="true"><div><span class="vg-from">100K</span><span class="vg-year">2017</span></div><span class="vg-line"><span class="vg-dot"></span></span><div><span class="vg-to">1M+</span><span class="vg-year">2020</span></div></div>
         <p class="meta" style="font-size:14px;font-style:italic">Recognised by my first team when we passed 1M followers.</p>
         <p class="result">Grew social media from 100K to 1M+ followers.</p>
       </article>
