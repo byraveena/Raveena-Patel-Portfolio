@@ -81,6 +81,11 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 /* Hero */
 .hero { padding-block: 56px 44px; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 320px); gap: 36px; align-items: center; }
+.hero-photo { position: relative; padding: 0 0 0 0; }
+.hero-photo::before { content: ""; position: absolute; left: 4%; right: -4%; top: 4%; bottom: -4%; background: var(--saffron); border-radius: 999px 999px 22px 22px; z-index: 0; }
+.hero-photo img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } .hero-photo { max-width: 340px; } }
 .hero h1 { font-size: clamp(44px, 8vw, 88px); line-height: 1.02; margin: 0 0 24px; color: var(--fg); }
 .hero h1 em { color: var(--accent); font-style: italic; }
 .hero .role { font-size: 18px; color: var(--fg); margin: 0 0 12px; font-weight: 500; }
@@ -320,14 +325,19 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
 
 <main id="top" class="wrap">
   <div class="hero">
-    <p class="label">Marketing &amp; Brand Manager · Ottawa, ON</p>
-  <h1 class="display">Great brands don&rsquo;t need to <em>shout.</em></h1>
-  <p class="role">I&rsquo;m a brand manager and digital strategist.</p>
-  <p class="lede">I grow brands through organic content and storytelling across Instagram, YouTube, and TikTok. I map the digital architecture first, decide what needs to be said and to whom, then build the systems that make the brand hard to ignore.</p>
-  <div class="actions">
-    <a class="btn solid" href="#work">See my work</a>
-    <a class="btn" href="https://www.linkedin.com/in/raveenapatel-brandmanager/" target="_blank" rel="noopener">LinkedIn</a>
-  </div>
+    <div class="hero-grid">
+      <div class="hero-text">
+      <p class="label">Marketing &amp; Brand Manager · Ottawa, ON</p>
+      <h1 class="display">Great brands don&rsquo;t need to <em>shout.</em></h1>
+      <p class="role">I&rsquo;m a brand manager and digital strategist.</p>
+      <p class="lede">I grow brands through organic content and storytelling across Instagram, YouTube, and TikTok. I map the digital architecture first, decide what needs to be said and to whom, then build the systems that make the brand hard to ignore.</p>
+      <div class="actions">
+      <a class="btn solid" href="#work">See my work</a>
+      <a class="btn" href="https://www.linkedin.com/in/raveenapatel-brandmanager/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+      </div>
+      <div class="hero-photo"><img src="assets/raveena-headshot.png" alt="Raveena Patel smiling" width="2000" height="2000"></div>
+    </div>
   </div>
 
   <div class="stats" role="list">
