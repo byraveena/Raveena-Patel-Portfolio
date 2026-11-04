@@ -172,9 +172,9 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
 .how ol { margin: 14px 0 0; padding-left: 20px; }
 .how li { margin-bottom: 8px; color: var(--fg); }
 .gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-top: 24px; padding-bottom: 6px; }
-.g-thumb { flex: 0 0 150px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); scroll-snap-align: start; }
+.g-thumb { flex: 0 0 150px; width: 150px; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); scroll-snap-align: start; }
 @media (max-width: 860px) { .win-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } }
-@media (max-width: 480px) { .win { padding: 24px; } .ws b { font-size: 32px; } .g-thumb { flex-basis: 120px; } }
+@media (max-width: 480px) { .win { padding: 24px; } .ws b { font-size: 32px; } .g-thumb { width: 120px; flex-basis: 120px; } }
 
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
