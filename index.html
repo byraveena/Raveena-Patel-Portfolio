@@ -154,6 +154,28 @@ section { padding-top: 84px; }
 
 img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display: block; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); }
 
+/* Win block: reusable layout for each case study */
+.win { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 40px; }
+.win-head .section-title { margin-bottom: 12px; }
+.win-sub { color: var(--muted); font-size: 18px; max-width: 60ch; margin: 0 0 28px; }
+.split { display: flex; height: 64px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
+.seg { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; color: var(--on-accent); min-width: 0; font-size: 14px; gap: 10px; }
+.seg b { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 26px; }
+.seg-a { background: var(--accent); }
+.seg-b { background: var(--teal); }
+.win-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin: 24px 0; }
+.ws { border-top: 2px solid var(--saffron); padding-top: 12px; min-width: 0; }
+.ws b { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: var(--accent); }
+.ws span { display: block; font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+.how { border-top: 1px solid var(--line); padding: 18px 0 0; margin-top: 8px; }
+.how summary { cursor: pointer; font-weight: 700; color: var(--accent); font-size: 16px; }
+.how ol { margin: 14px 0 0; padding-left: 20px; }
+.how li { margin-bottom: 8px; color: var(--fg); }
+.gallery { display: flex; gap: 12px; overflow-x: auto; scroll-snap-type: x mandatory; margin-top: 24px; padding-bottom: 6px; }
+.g-thumb { flex: 0 0 150px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 12px; border: 1px solid var(--line); scroll-snap-align: start; }
+@media (max-width: 860px) { .win-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 480px) { .win { padding: 24px; } .ws b { font-size: 32px; } .g-thumb { flex-basis: 120px; } }
+
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
@@ -511,18 +533,41 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     </div>
   </section>
 
+  <!-- WIN BLOCK: copy this block for each new win. Change the numbers, the split bar, the steps, and the slides. -->
   <section id="case" aria-labelledby="case-title">
     <p class="label">Case study · 2026</p>
-    <h2 id="case-title" class="section-title display">Carousels that <em>took off.</em></h2>
-    <div class="carousel" id="carousel" aria-label="Carousel slides, swipe to read">
-      <img class="slide" src="assets/carousel-1.jpg" alt="Hook: one script, 198K views across a carousel and a reel">
-      <img class="slide" src="assets/carousel-2.jpg" alt="The carousel: 152K views and 1K saves">
-      <img class="slide" src="assets/carousel-3.jpg" alt="The reel: 46K views in under a day">
-      <img class="slide" src="assets/carousel-4.jpg" alt="Why it worked: 73.4% of carousel viewers already followed, 84.5% of reel viewers did not">
-      <img class="slide" src="assets/carousel-5.jpg" alt="The research behind the script, in four steps">
-      <img class="slide" src="assets/carousel-6.jpg" alt="One script in total, with a call to action to comment SCRIPT">
-    </div>
-    <div class="dots" id="dots" aria-hidden="true"></div>
+    <article class="win">
+      <header class="win-head">
+        <h2 id="case-title" class="section-title display">One script. <em>198K views.</em></h2>
+        <p class="win-sub">Used twice, once as a carousel and once as a reel. The carousel did most of the work.</p>
+      </header>
+
+      <div class="split" role="img" aria-label="Carousel 152K views, reel 46K views">
+        <div class="seg seg-a" style="flex:152"><span>Carousel</span><b>152K</b></div>
+        <div class="seg seg-b" style="flex:46"><span>Reel</span><b>46K</b></div>
+      </div>
+
+      <div class="win-stats">
+        <div class="ws"><b>1K</b><span>saves on the carousel</span></div>
+        <div class="ws"><b>626</b><span>sends on the carousel</span></div>
+        <div class="ws"><b>31.5%</b><span>reel skip rate, lower than usual</span></div>
+        <div class="ws"><b>0.4%</b><span>reel share rate, higher than usual</span></div>
+      </div>
+
+      <details class="how">
+        <summary>How I did it</summary>
+        <ol>
+          <li><strong>Study the brand.</strong> What it stands for and what's already working.</li>
+          <li><strong>Study the niche.</strong> The topics people keep sending each other.</li>
+          <li><strong>Study the audience.</strong> What they feel, and what they'd save for later.</li>
+          <li><strong>Write once, use twice.</strong> One script, cut as a reel and designed as a carousel.</li>
+        </ol>
+      </details>
+
+      <div class="gallery" aria-label="Carousel slides">
+        <img src="assets/carousel-1.jpg" alt="Slide 1 of the carousel win" class="g-thumb"><img src="assets/carousel-2.jpg" alt="Slide 2 of the carousel win" class="g-thumb"><img src="assets/carousel-3.jpg" alt="Slide 3 of the carousel win" class="g-thumb"><img src="assets/carousel-4.jpg" alt="Slide 4 of the carousel win" class="g-thumb"><img src="assets/carousel-5.jpg" alt="Slide 5 of the carousel win" class="g-thumb"><img src="assets/carousel-6.jpg" alt="Slide 6 of the carousel win" class="g-thumb">
+      </div>
+    </article>
   </section>
 
   <section id="live" aria-labelledby="live-title">
