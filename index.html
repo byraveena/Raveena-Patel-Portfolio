@@ -176,6 +176,10 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
 @media (max-width: 860px) { .win-stats { grid-template-columns: repeat(2, minmax(0,1fr)); } }
 @media (max-width: 480px) { .win { padding: 24px; } .ws b { font-size: 32px; } .g-thumb { width: 120px; flex-basis: 120px; } }
 
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { display: inline-block; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); font-weight: 700; font-size: 15px; text-decoration: none; }
+.chip:hover { background: var(--accent); color: var(--on-accent); }
+
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
@@ -573,32 +577,12 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   <section id="live" aria-labelledby="live-title">
     <p class="label">Live work</p>
     <h2 id="live-title" class="section-title display">Watch the <em>posts.</em></h2>
-    <div class="posts">
-      <article class="post reveal">
-        <span class="tag">Reel</span>
-        <h3>Instagram reel</h3>
-        <p class="meta"><a href="https://www.instagram.com/reel/DXj7E-EgRQe/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p>
-      </article>
-      <article class="post reveal">
-        <span class="tag">Post</span>
-        <h3>Instagram post</h3>
-        <p class="meta"><a href="https://www.instagram.com/p/Co4hctAtSws/?img_index=1" target="_blank" rel="noopener">View on Instagram ↗</a></p>
-      </article>
-      <article class="post reveal">
-        <span class="tag">Reel</span>
-        <h3>Instagram reel</h3>
-        <p class="meta"><a href="https://www.instagram.com/reel/DeXAYZVI6ie/" target="_blank" rel="noopener">Watch on Instagram ↗</a></p>
-      </article>
-      <article class="post reveal">
-        <span class="tag">Influencer marketing</span>
-        <h3>Instagram post</h3>
-        <p class="meta"><a href="https://www.instagram.com/p/DcvzcNLI62U/" target="_blank" rel="noopener">View on Instagram ↗</a></p>
-      </article>
-      <article class="post reveal">
-        <span class="tag">Influencer marketing</span>
-        <h3>Instagram post</h3>
-        <p class="meta"><a href="https://www.instagram.com/p/DQbqQO8EZcc/" target="_blank" rel="noopener">View on Instagram ↗</a></p>
-      </article>
+    <div class="chips">
+      <a class="chip" href="https://www.instagram.com/reel/DXj7E-EgRQe/" target="_blank" rel="noopener">Reel ↗</a>
+      <a class="chip" href="https://www.instagram.com/p/Co4hctAtSws/?img_index=1" target="_blank" rel="noopener">Post ↗</a>
+      <a class="chip" href="https://www.instagram.com/reel/DeXAYZVI6ie/" target="_blank" rel="noopener">Reel ↗</a>
+      <a class="chip" href="https://www.instagram.com/p/DcvzcNLI62U/" target="_blank" rel="noopener">Influencer post ↗</a>
+      <a class="chip" href="https://www.instagram.com/p/DQbqQO8EZcc/" target="_blank" rel="noopener">Influencer post ↗</a>
     </div>
   </section>
 
