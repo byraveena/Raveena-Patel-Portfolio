@@ -8,6 +8,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap">
 <style>
+@font-face { font-family: "New Romantics"; src: url("assets/fonts/ROMANTIC.TTF") format("truetype"); font-display: swap; }
+.accent-script { font-family: "New Romantics", Georgia, serif; font-weight: 400; color: var(--accent); font-size: 1.2em; line-height: 1; }
 /* Order: hero, stats, skills, experience timeline, education, then the work showcase last.
    Type: Fraunces for headlines and numbers, Manrope for body (brand kit). */
 
@@ -501,7 +503,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     </div>
     <div class="skill-card reveal" style="margin-top:20px">
       <h3>Analytics &amp; AI</h3>
-        <div class="bar"><div class="bar-head"><span>AI workflow automation</span><b>8.9/10</b></div><div class="track"><div class="fill" data-w="89"></div></div></div>
+        <div class="bar"><div class="bar-head"><span><span class="accent-script">ai</span> workflow automation</span><b>8.9/10</b></div><div class="track"><div class="fill" data-w="89"></div></div></div>
         <div class="bar"><div class="bar-head"><span>Audience analytics</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
         <div class="bar"><div class="bar-head"><span>Performance reporting</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
     </div>
@@ -642,7 +644,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
   </section>
 
-  <footer>© 2026 Raveena Patel · Ottawa, Ontario</footer>
+  <footer>© 2026 Raveena Patel · Ottawa, Ontario<br><small style="font-size:12px;color:var(--muted)">Accent lettering: New Romantics by Fonts a Go-Go (Jennifer Heinicke)</small></footer>
 </main>
 
 <script>
