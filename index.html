@@ -91,7 +91,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .hero-photo img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } .hero-photo { max-width: 340px; } }
 .hero h1 { font-size: clamp(44px, 8vw, 88px); line-height: 1.02; margin: 0 0 24px; color: var(--fg); }
-.hero h1 em { color: inherit; font-style: normal; }
+.hero h1 em { color: var(--accent); font-style: italic; }
 .hero .role { font-size: 18px; color: var(--fg); margin: 0 0 12px; font-weight: 500; }
 .hero .lede { max-width: 62ch; color: var(--muted); font-size: 18px; margin: 0 0 30px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -117,7 +117,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* Sections */
 section { padding-top: 84px; }
 .section-title { font-size: clamp(36px, 5vw, 56px); line-height: 1.05; margin: 0 0 32px; }
-.section-title em { color: inherit; font-style: normal; }
+.section-title em { color: var(--accent); font-style: italic; }
 
 /* Reveal on scroll (only when JS is on) */
 .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
@@ -276,7 +276,7 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
   margin-top: 84px; background: var(--band-bg); color: var(--band-fg); border-radius: 24px; padding: 48px 36px; margin-bottom: 40px;
 }
 .contact h2 { margin: 0 0 12px; font-size: clamp(38px, 5.4vw, 60px); line-height: 1.04; }
-.contact h2 em { font-style: normal; color: inherit; }
+.contact h2 em { font-style: italic; color: var(--saffron); }
 .contact p.lede { margin: 0 0 28px; max-width: 56ch; color: var(--band-fg); }
 .contact .rows { display: grid; gap: 14px; }
 .contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 17px; }
@@ -332,7 +332,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <div class="hero-grid">
       <div class="hero-text">
       <p class="label">Marketing &amp; Brand Manager · Ottawa, ON</p>
-      <h1 class="display">Great brands don&rsquo;t need to shout.</h1>
+      <h1 class="display">Great brands don&rsquo;t need to <em>shout.</em></h1>
       <p class="role">I&rsquo;m a brand manager and digital strategist.</p>
       <p class="lede">I’ve managed teams, grown brands and built a few things from scratch. Here’s the work, in plain terms.</p>
       <div class="actions">
@@ -357,7 +357,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <p class="label">Recent case study · 2026</p>
     <article class="win">
       <header class="win-head">
-        <h2 id="case-title" class="section-title display">One script. 198K views.</h2>
+        <h2 id="case-title" class="section-title display">One script. <em>198K views.</em></h2>
         <p class="win-sub">Used twice, once as a carousel and once as a reel. The carousel did most of the work.</p>
       </header>
 
@@ -392,7 +392,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   <!-- 4. Work showcase, last -->
   <section id="work" aria-labelledby="work-title">
     <p class="label">Selected work</p>
-    <h2 id="work-title" class="section-title display">Campaigns that moved audiences.</h2>
+    <h2 id="work-title" class="section-title display">Campaigns that <em>moved</em> audiences.</h2>
     <div class="work-grid">
       <article class="card reveal">
         <span class="tag">Carousel strategy · 2026</span>
@@ -476,7 +476,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   <!-- 1. Skills, before experience. One scale for all: bars out of 10, capped at 9.9. Only skills at 7.5 or higher. -->
   <section id="skills" aria-labelledby="skills-title">
     <p class="label">Skills</p>
-    <h2 id="skills-title" class="section-title display">What I bring to a brand.</h2>
+    <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
     <div class="skill-grid">
       <div class="skill-card reveal">
         <h3>Social media &amp; editing</h3>
@@ -524,7 +524,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   <!-- 2. Experience: newest first, scrolls back through time -->
   <section id="experience" aria-labelledby="exp-title">
     <p class="label">Experience</p>
-    <h2 id="exp-title" class="section-title display">Nine years of building brands.</h2>
+    <h2 id="exp-title" class="section-title display">Nine years of <em>building</em> brands.</h2>
     <div class="exp">
       <aside class="rail" aria-hidden="true">
         <p class="now-label">You are in</p>
@@ -625,7 +625,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   </section>
 
   <section id="contact" class="contact" aria-labelledby="contact-title">
-    <h2 id="contact-title" class="display">Let&rsquo;s build something people remember.</h2>
+    <h2 id="contact-title" class="display">Let&rsquo;s build something people <em>remember.</em></h2>
     <p class="lede">Open to brand, digital marketing, and content strategy roles. Reach out by email or phone, or connect on LinkedIn.</p>
     <div class="rows">
       <div class="row">
