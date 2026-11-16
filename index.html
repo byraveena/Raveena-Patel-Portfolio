@@ -4,13 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Raveena Patel | Marketing &amp; Brand Manager</title>
+<meta name="description" content="Raveena Patel is a marketing and brand manager in Ottawa. Selected campaigns, a recent case study, experience and skills.">
+<meta property="og:title" content="Raveena Patel | Marketing &amp; Brand Manager">
+<meta property="og:description" content="Selected campaigns, a recent case study, experience and skills.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B1D16'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23E3B04B' stroke-width='2'/%3E%3Ctext x='21' y='42' font-family='Georgia,serif' font-size='28' fill='%23FAF3E6'%3ER%3C/text%3E%3Ctext x='37' y='44' font-family='Georgia,serif' font-style='italic' font-size='24' fill='%23E3B04B'%3Ep%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Montserrat:wght@400;500;600;700;800&display=swap">
 <style>
 @font-face { font-family: "New Romantics"; src: url("assets/fonts/ROMANTIC.TTF") format("truetype"); font-display: swap; }
 .accent-script { font-family: "New Romantics", Georgia, serif; font-weight: 400; color: var(--accent); font-size: 1.2em; line-height: 1; }
-/* Order: hero, stats, skills, experience timeline, education, then the work showcase last.
+/* Order: hero, stats, work (case study folded in), then résumé: experience, skills, education.
    Type: Rozha One for headlines and numbers, Montserrat for body, New Romantics for one accent word (brand kit V2). */
 
 /* Palette tokens (light) — Brand kit: Deep Autumn */
@@ -123,48 +128,43 @@ section { padding-top: 84px; }
 .js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .js .reveal.in { opacity: 1; transform: none; }
 
-/* Skills */
-.skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.skill-card { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 24px; min-width: 0; }
-.skill-card h3 { margin: 0 0 4px; font-size: 17px; }
-.skill-card .d { margin: 0 0 16px; font-size: 14px; color: var(--muted); }
-.bar { margin: 14px 0; }
-.bar-note { margin: 8px 0 0; font-size: 13px; color: var(--muted); line-height: 1.45; }
-.bar-head { display: flex; justify-content: space-between; font-size: 15px; margin-bottom: 6px; gap: 12px; }
-.bar-head b { font-family: "Rozha One", sans-serif; color: var(--accent); }
-.track { height: 10px; background: var(--track); border-radius: 999px; overflow: hidden; }
-.fill { height: 100%; width: 0; background: var(--accent); border-radius: 999px; transition: width 1.1s cubic-bezier(.2,.7,.2,1); }
-.stars-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
-.stars-row:last-child { border-bottom: 0; }
-.stars { color: var(--accent); letter-spacing: 3px; font-size: 17px; white-space: nowrap; }
-.sc { font-family: "Rozha One", Georgia, serif; font-size: 15px; letter-spacing: 0; margin-left: 6px; color: var(--fg); }
-.stars .off { color: var(--line); }
-.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-.pill { padding: 9px 16px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); font-size: 15px; color: var(--fg); }
-.pill.hi { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+/* Section marker: makes each main section easy to spot when skimming */
+.label.mark { font-size: 14px; display: flex; align-items: center; gap: 14px; }
+.label.mark::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 
-.ring { display: flex; flex-wrap: wrap; gap: 18px; }
-.ringc { width: 110px; text-align: center; font-size: 13px; color: var(--muted); line-height: 1.3; }
-.ringc .c { width: 84px; height: 84px; border-radius: 50%; margin: 0 auto 8px; display: flex; align-items: center; justify-content: center; }
-.ringc .rc-in { width: 66px; height: 66px; border-radius: 50%; background: var(--surface); color: var(--fg); display: flex; align-items: center; justify-content: center; font-family: "Rozha One", sans-serif; font-weight: 700; font-size: 16px; }
+/* Skills: no scores. Type size shows strength, strongest first. */
+.band { display: grid; grid-template-columns: 176px minmax(0, .82fr) minmax(0, 1.18fr); background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; margin-bottom: 16px; }
+.band .side { padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; min-height: 176px; }
+.band .side svg { width: 44px; height: 44px; }
+.band .side .name { font-family: "Rozha One", Georgia, serif; font-size: 23px; line-height: 1.08; }
+.band.a .side { background: #5B2245; color: #FAF3E6; }
+.band.b .side { background: #0F4C4F; color: #FAF3E6; }
+.band.c .side { background: #E3B04B; color: #2B1D16; }
+.ladder { padding: 22px 8px 22px 26px; display: flex; flex-direction: column; justify-content: center; gap: 10px; min-width: 0; }
+.ladder > span, .more.stack > span { font-family: "Rozha One", Georgia, serif; line-height: 1.06; display: block; }
+.s1 { font-size: 32px; color: var(--accent); }
+.s2 { font-size: 25px; color: var(--fg); }
+.s3 { font-size: 20px; color: var(--muted); }
+.band.b .s1 { color: var(--tag-fg); }
+.band.c .s1 { color: var(--fg); }
+.more { padding: 22px 22px 22px 14px; display: flex; flex-wrap: wrap; gap: 8px; align-content: center; border-left: 1px dashed var(--line); margin-left: 8px; min-width: 0; }
+.more.stack { flex-direction: column; flex-wrap: nowrap; justify-content: center; align-content: normal; gap: 10px; padding-left: 26px; }
+.pill { font-size: 13px; font-weight: 600; padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
+.howhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 30px 0 14px; }
+.howhead h3 { font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 30px; margin: 0; }
+.howhead span { font-size: 14px; color: var(--muted); }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; min-width: 0; }
+.ico { width: 46px; height: 46px; border-radius: 50%; background: var(--bg); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: var(--accent); }
+.ico svg { width: 24px; height: 24px; }
+.band svg, .ico svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.tile b { display: block; font-size: 16px; font-weight: 700; line-height: 1.25; margin-bottom: 10px; }
+.proof { display: flex; flex-wrap: wrap; gap: 6px; }
+.proof span { font-size: 12px; font-weight: 600; color: var(--tag-fg); background: var(--tag-bg); border-radius: 6px; padding: 4px 8px; }
+.langs { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 22px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--rust); }
+.langs i { font-style: normal; letter-spacing: 0; text-transform: none; font-size: 14px; color: var(--fg); border: 1.5px solid var(--accent); border-radius: 999px; padding: 6px 14px; }
 
-.vol-card { position: relative; border: 2px solid var(--accent); }
-.vol-stamp { position: absolute; top: 18px; right: 18px; width: 92px; height: 92px; border-radius: 50%; border: 2px dashed var(--accent); color: var(--accent); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; line-height: 1.25; transform: rotate(-12deg); background: var(--surface); }
-
-
-.vad-growth { display: flex; align-items: center; gap: 14px; margin: 14px 0 4px; max-width: 520px; }
-.vad-growth .vg-from { font-family: "Rozha One", sans-serif; font-weight: 700; font-size: 26px; color: var(--muted); }
-.vad-growth .vg-to { font-family: "Rozha One", sans-serif; font-weight: 700; font-size: 44px; line-height: 1; color: var(--accent); }
-.vad-growth .vg-line { position: relative; flex: 1; height: 3px; background: var(--accent); border-radius: 99px; }
-.vad-growth .vg-line::after { content: ""; position: absolute; right: -2px; top: -5px; border-left: 9px solid var(--accent); border-top: 6.5px solid transparent; border-bottom: 6.5px solid transparent; }
-.vad-growth .vg-dot { position: absolute; left: 0; top: -6px; width: 15px; height: 15px; border-radius: 50%; background: var(--surface); border: 3px solid var(--accent); }
-
-.proof-stats { flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 8px; margin: 8px 0; }
-.proof-stats div { display: flex; align-items: baseline; gap: 10px; border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; }
-.slide .proof-stats .big-num { font-size: 26px; line-height: 1; color: var(--accent); min-width: 66px; }
-.proof-stats span { font-size: 13px; color: var(--muted); }
-
-img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display: block; object-fit: cover; border-radius: 18px; border: 1px solid var(--line); }
+.vol-stamp { position: absolute; top: 18px; right: 18px; width: 100px; height: 100px; border-radius: 50%; border: 2px dashed var(--accent); color: var(--accent); display: flex; align-items: center; justify-content: center; text-align: center; font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; line-height: 1.35; transform: rotate(9deg); background: var(--surface); z-index: 2; }
 
 /* Win block: reusable layout for each case study */
 .win { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 40px; }
@@ -191,12 +191,6 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
 .chips { display: flex; flex-wrap: wrap; gap: 10px; }
 .chip { display: inline-block; padding: 10px 18px; border-radius: 999px; border: 1px solid var(--accent); background: var(--surface); color: var(--accent); font-weight: 700; font-size: 15px; text-decoration: none; }
 .chip:hover { background: var(--accent); color: var(--on-accent); }
-
-.card.feature { min-height: 420px; justify-content: center; }
-.vad-growth { max-width: none; align-items: flex-end; margin: 22px 0 8px; }
-.vad-growth .vg-to { font-size: 64px; }
-.vad-growth .vg-year { display: block; font-size: 13px; color: var(--muted); margin-top: 4px; }
-.vad-growth .vg-line { align-self: center; margin-bottom: 26px; }
 
 /* Experience timeline: sticky year rail on the left, newest first */
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
@@ -229,47 +223,44 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
 .fact ul { margin: 0; padding-left: 18px; }
 .fact .name { font-weight: 700; color: var(--fg); margin: 0; }
 
-/* Work showcase cards */
+/* Work cards: result as the headline, one visual, one line, tags */
 .work-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-.card {
-  background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 26px; min-width: 0;
-  display: flex; flex-direction: column; gap: 12px;
-}
-.card.feature { grid-column: 1 / -1; background: var(--lav); border-color: transparent; }
-.card .tag { align-self: flex-start; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--tag-fg); background: var(--tag-bg); padding: 4px 10px; border-radius: 999px; }
-.card h3 { font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.1; margin: 0; color: var(--fg); text-wrap: balance; }
-.card .meta { font-size: 14px; color: var(--muted); margin: 0; }
-.card ul { margin: 0; padding-left: 18px; color: var(--fg); }
-.card li { margin-bottom: 6px; }
-.card .result { font-size: 15px; font-weight: 700; color: var(--accent); margin: auto 0 0; padding-top: 6px; }
-
-/* Case study carousel: swipeable slides, dots instead of page numbers */
-.carousel { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 8px; scrollbar-width: none; }
-.carousel::-webkit-scrollbar { display: none; }
-.slide {
-  flex: 0 0 min(300px, 78%); aspect-ratio: 1 / 1; scroll-snap-align: start; border-radius: 18px; padding: 22px;
-  display: flex; flex-direction: column; justify-content: space-between; gap: 12px; position: relative; overflow: hidden;
-}
-.slide .k { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; font-weight: 700; opacity: .8; }
-.slide .big-num { font-size: 66px; line-height: 1; }
-.slide h3 { font-family: "Rozha One", Georgia, serif; font-style: italic; font-weight: 400; font-size: 28px; line-height: 1.1; margin: 0; }
-.slide p { margin: 0; font-size: 14px; line-height: 1.45; }
-.s-dark { background: var(--fg); color: var(--bg); }
-.s-dark .big-num { color: var(--saffron); }
-.s-lav { background: var(--lav); color: var(--fg); }
-.s-mint { background: var(--band-bg); color: var(--band-fg); }
-.s-proof { background: var(--surface); color: var(--fg); border: 1px solid var(--line); }
-.proof-box { flex: 1; border: 2px dashed var(--accent); border-radius: 12px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 14px; font-size: 14px; color: var(--accent); }
-.dots { display: flex; justify-content: center; gap: 8px; margin-top: 16px; }
-.dots span { width: 9px; height: 9px; border-radius: 50%; background: var(--line); transition: background .3s, transform .3s; }
-.dots span.on { background: var(--accent); transform: scale(1.25); }
-
-/* Live posts */
-.posts { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; }
-.post { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
-.post .tag { align-self: flex-start; font-size: 10px; letter-spacing: .04em; white-space: nowrap; text-transform: uppercase; color: var(--tag-fg); background: var(--tag-bg); padding: 4px 8px; border-radius: 999px; }
-.post h3 { margin: 4px 0 0; font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 24px; }
-.post a { font-weight: 600; font-size: 13px; text-decoration: none; white-space: nowrap; }
+.wcard { background: var(--surface); border: 1px solid var(--line); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; position: relative; }
+.wcard.wide { grid-column: 1 / -1; flex-direction: row; }
+.wvis { aspect-ratio: 16 / 10; overflow: hidden; background: var(--lav); position: relative; }
+.wvis img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.wcard.wide .wvis { flex: 0 0 42%; aspect-ratio: auto; min-height: 320px; }
+.wcard.wide .wvis img { position: absolute; inset: 0; }
+.wcard.case .wvis { min-height: 370px; }
+.wbody { padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 0; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--tag-bg); color: var(--tag-fg); }
+.tag.case { background: var(--accent); color: var(--on-accent); }
+.wcard h3 { font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.08; margin: 2px 0 0; color: var(--fg); text-wrap: balance; }
+.wcard.wide h3 { font-size: clamp(30px, 3.8vw, 40px); }
+.who { font-size: 14px; color: var(--muted); font-weight: 500; margin: 0; }
+.who b { color: var(--fg); font-weight: 700; }
+.who small { display: block; font-size: 12px; margin-top: 2px; }
+.desc { font-size: 15px; line-height: 1.5; margin: 0; }
+.nums { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
+.numbox { border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 12px; color: var(--muted); font-weight: 600; }
+.numbox b { display: block; font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 22px; color: var(--accent); line-height: 1.1; }
+.wlinks { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
+.wlinks .btn { text-transform: uppercase; letter-spacing: .1em; font-size: 12px; font-weight: 700; }
+.vtile { box-sizing: border-box; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; }
+.vtile.grow { padding: 0 26px; }
+.growrow { display: flex; align-items: center; gap: 14px; width: 100%; }
+.growrow .from { font-family: "Rozha One", Georgia, serif; font-size: 26px; color: var(--muted); }
+.growrow .to { font-family: "Rozha One", Georgia, serif; font-size: 52px; line-height: 1; color: var(--accent); }
+.growrow .ln { flex: 1; height: 3px; background: var(--accent); position: relative; border-radius: 2px; }
+.growrow .ln::after { content: ""; position: absolute; right: -2px; top: -6px; border-left: 12px solid var(--accent); border-top: 7.5px solid transparent; border-bottom: 7.5px solid transparent; }
+.yrs { display: flex; justify-content: space-between; width: 100%; font-size: 12px; color: var(--muted); font-weight: 600; }
+.vtile.teal { background: #0F4C4F; color: #FAF3E6; }
+.vtile.teal .big { font-family: "Rozha One", Georgia, serif; font-size: 76px; color: #E3B04B; line-height: 1; }
+.vtile.teal .cap { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+.case-panel { grid-column: 1 / -1; }
+.case-panel[hidden] { display: none; }
+@media (min-width: 861px) { .wcard.vol h3 { padding-right: 112px; } }
 
 /* Contact */
 .contact {
@@ -282,6 +273,7 @@ img.slide { aspect-ratio: 4 / 5; flex: 0 0 min(260px, 72%); padding: 0; display:
 .contact .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; font-size: 17px; }
 .contact .row span.k { font-size: 12px; text-transform: uppercase; letter-spacing: 0.12em; min-width: 72px; color: var(--band-fg); opacity: 0.75; }
 .contact a { color: var(--band-fg); font-weight: 700; word-break: break-word; }
+.mini.done { background: var(--band-fg); color: var(--band-bg); }
 .mini { font: inherit; font-size: 13px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--band-fg); background: transparent; color: var(--band-fg); cursor: pointer; }
 
 footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
@@ -292,18 +284,27 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .stat:nth-child(2) { border-right: 0; }
   .stat:nth-child(-n+2) { border-bottom: 1px solid color-mix(in srgb, var(--bg) 18%, transparent); }
-  .skill-grid, .work-grid, .facts { grid-template-columns: minmax(0, 1fr); }
-  .card.feature { grid-column: auto; }
-  .posts { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-  .posts::-webkit-scrollbar { display: none; }
-  .post { flex: 0 0 min(240px, 72%); scroll-snap-align: start; }
+  .work-grid, .facts { grid-template-columns: minmax(0, 1fr); }
+  .wcard.wide { grid-column: auto; flex-direction: column; }
+  .wcard.wide .wvis { flex: none; aspect-ratio: 16 / 10; min-height: 0; }
+  .wcard.wide .wvis img { position: static; }
+  .wcard.case .wvis { aspect-ratio: 1 / 1; min-height: 0; }
+  .band { grid-template-columns: minmax(0, 1fr); }
+  .band .side { flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; min-height: 0; padding: 16px 20px; }
+  .band .side svg { width: 34px; height: 34px; flex: none; }
+  .ladder { padding: 20px 20px 6px; }
+  .more, .more.stack { border-left: 0; margin-left: 0; padding: 12px 20px 20px; }
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .exp { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .rail { position: static; }
   .rail .now-year { font-size: 40px; }
 }
 @media (max-width: 480px) {
   .hero { padding-block: 36px 32px; }
-  .card { padding: 22px; }
+  .wbody { padding: 20px; }
+  .tiles { grid-template-columns: minmax(0, 1fr); }
+  .s1 { font-size: 28px; }
+  .growrow .to { font-size: 44px; }
   .contact { padding: 32px 22px; }
   .stat { padding: 20px 18px; }
   .stat .value { font-size: 34px; }
@@ -318,10 +319,8 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
 <header class="wrap topbar">
   <a class="brand display" href="#top">Raveena Patel</a>
   <nav class="nav" aria-label="Sections">
-    <a href="#case">Case study</a>
     <a href="#work">Work</a>
-    <a href="#skills">Skills</a>
-    <a href="#experience">Experience</a>
+    <a href="#resume">Résumé</a>
     <a href="#contact">Contact</a>
     <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false">Dark mode</button>
   </nav>
@@ -352,12 +351,27 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <div class="stat reveal" role="listitem"><div class="value">20K+</div><div class="caption">Professional LinkedIn community</div></div>
   </div>
 
-  <!-- WIN BLOCK: copy this block for each new win. Change the numbers, the split bar, the steps, and the slides. -->
-  <section id="case" aria-labelledby="case-title">
-    <p class="label">Recent case study · 2026</p>
-    <article class="win">
+  <!-- WORK: the case study is the first card. To add a win, copy a card and, for a full case study, the case panel. -->
+  <section id="work" aria-labelledby="work-title">
+    <p class="label mark">Work</p>
+    <h2 id="work-title" class="section-title display">Campaigns that <em>moved</em> audiences.</h2>
+    <div class="work-grid">
+
+      <article class="wcard wide case reveal">
+        <div class="wvis"><img src="assets/carousel-1.jpg" alt="Results slide: one script, 198K views" style="object-position:top"></div>
+        <div class="wbody">
+          <div class="tags"><span class="tag case">Case study</span><span class="tag">Carousel strategy · 2026</span></div>
+          <h3>198K views from one script</h3>
+          <p class="who"><b>Health and wellness client</b> · Social media strategist, contract</p>
+          <p class="desc">One script, used twice: once as a carousel, once as a reel. The first win came within two weeks.</p>
+          <div class="nums"><div class="numbox"><b>152K</b>carousel views</div><div class="numbox"><b>46K</b>reel views</div><div class="numbox"><b>570K+</b>audience</div></div>
+          <div class="wlinks"><button class="btn solid" type="button" id="case-toggle" aria-expanded="true" aria-controls="case">Read the case study</button></div>
+        </div>
+      </article>
+
+      <article class="win case-panel" id="case" aria-labelledby="case-title">
       <header class="win-head">
-        <h2 id="case-title" class="section-title display">One script. <em>198K views.</em></h2>
+        <h3 id="case-title" class="section-title display">One script. <em>198K views.</em></h3>
         <p class="win-sub">Used twice, once as a carousel and once as a reel. The carousel did most of the work.</p>
       </header>
 
@@ -386,80 +400,57 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
       <div class="gallery" aria-label="Carousel slides">
         <img src="assets/carousel-1.jpg" alt="Slide 1 of the carousel win" class="g-thumb"><img src="assets/carousel-2.jpg" alt="Slide 2 of the carousel win" class="g-thumb"><img src="assets/carousel-3.jpg" alt="Slide 3 of the carousel win" class="g-thumb"><img src="assets/carousel-4.jpg" alt="Slide 4 of the carousel win" class="g-thumb"><img src="assets/carousel-5.jpg" alt="Slide 5 of the carousel win" class="g-thumb"><img src="assets/carousel-6.jpg" alt="Slide 6 of the carousel win" class="g-thumb">
       </div>
-    </article>
-  </section>
+      </article>
 
-  <!-- 4. Work showcase, last -->
-  <section id="work" aria-labelledby="work-title">
-    <p class="label">Selected work</p>
-    <h2 id="work-title" class="section-title display">Campaigns that <em>moved</em> audiences.</h2>
-    <div class="work-grid">
-      <article class="card reveal">
-        <span class="tag">Carousel strategy · 2026</span>
-        <h3>Health and wellness client</h3>
-        <p class="meta">Social media strategist, contract · Sept 2026 to present</p>
-        <ul>
-          <li>Short-form video editing and creative direction.</li>
-          <li>Carousels were the first strategy we launched, and they&rsquo;re performing strongly.</li>
-        </ul>
-        <p class="result">570K+ audience. Carousels drove views and engagement, with the first win within two weeks.</p>
+      <article class="wcard reveal">
+        <div class="wvis"><div class="vtile grow" role="img" aria-label="Growth from 100K followers in 2017 to over 1 million in 2020"><div class="growrow"><span class="from">100K</span><span class="ln"></span><span class="to">1M+</span></div><div class="yrs"><span>2017</span><span>2020</span></div></div></div>
+        <div class="wbody">
+          <div class="tags"><span class="tag">Organic growth</span></div>
+          <h3>100K to 1M+ followers</h3>
+          <p class="who"><b>Our Vadodara</b> · Graphic Designer &amp; Content Writer · 2017 to 2020</p>
+          <p class="desc">Core team member on a regional media platform, making the visuals and story-first posts. Named a Facebook Community Leader in 2019 and 2020.</p>
+        </div>
       </article>
-      <article class="card reveal">
-        <span class="tag">Brand strategy</span>
-        <h3>FenceScape</h3>
-        <p class="meta">Brand Manager, capstone project · 2025</p>
-        <ul>
-          <li>Surveyed 29 homeowners (21 completed) to shape the plan.</li>
-          <li>Built a 12-month marketing plan with five tactics: landing page, social, AI search, referrals, and partnerships.</li>
-          <li>Created the visual templates and pitch deck for a Canadian fencing company.</li>
-        </ul>
-        <p class="result">Won the team pitch and top honours in the capstone evaluation.</p>
-        <p class="meta" style="font-size:13px">Targets in the plan are projections, not results.</p>
+
+      <article class="wcard reveal">
+        <div class="wvis"><div class="vtile teal" role="img" aria-label="3 million plus followers across YouTube and Instagram"><span class="big">3M+</span><span class="cap">YouTube + Instagram</span></div></div>
+        <div class="wbody">
+          <div class="tags"><span class="tag">Video &amp; reels</span></div>
+          <h3>3M+ followers across two platforms</h3>
+          <p class="who"><b>PayTm x Adert</b> · Digital Marketing Manager · 2020 to 2022<small>Under Adert Advertising &amp; Marketing</small></p>
+          <p class="desc">Led regional marketing for a listed company, and wrote and directed the YouTube and reel ad scripts.</p>
+        </div>
       </article>
-      <article class="card feature reveal">
-        <span class="tag">Organic growth</span>
-        <h3>Our Vadodara</h3>
-        <p class="meta">Graphic Designer &amp; Content Writer · 2017 to 2020</p>
-        <ul>
-          <li>Core team member who scaled the regional media platform to over 1M followers.</li>
-          <li>Created viral visuals, interactive infographics, and story-first posts for social.</li>
-          <li>Named a Facebook Community Leader in 2019 and 2020.</li>
-        </ul>
-        <div class="vad-growth" aria-hidden="true"><div><span class="vg-from">100K</span><span class="vg-year">2017</span></div><span class="vg-line"><span class="vg-dot"></span></span><div><span class="vg-to">1M+</span><span class="vg-year">2020</span></div></div>
-        <p class="meta" style="font-size:14px;font-style:italic">Recognised by my first team when we passed 1M followers.</p>
-        <p class="result">Grew social media from 100K to 1M+ followers.</p>
+
+      <article class="wcard reveal">
+        <div class="wvis"><img src="assets/anjoy-profile-cover.jpg" alt="Anjoy restaurant company profile cover"></div>
+        <div class="wbody">
+          <div class="tags"><span class="tag">Rebrand</span></div>
+          <h3>20K+ followers after a full rebrand</h3>
+          <p class="who"><b>Anjoy x Adert</b> · Digital Marketing Manager · 2021 to 2022</p>
+          <p class="desc">Designed the restaurant&rsquo;s brand kit and all of its social media designs, and drove steady foot traffic each month.</p>
+        </div>
       </article>
-      <article class="card reveal">
-        <span class="tag">Video &amp; reels</span>
-        <h3>PayTm x Adert</h3>
-        <p class="meta">Digital Marketing Manager · 2020 to 2022</p>
-        <p class="meta" style="font-size:12px;margin-top:-6px">Under Adert Advertising &amp; Marketing</p>
-        <ul>
-          <li>Led the core team on regional marketing with a listed company.</li>
-          <li>Wrote and directed YouTube and reel scripts for advertisements.</li>
-        </ul>
-        <p class="result">3M+ followers across YouTube and Instagram.</p>
+
+      <article class="wcard reveal">
+        <div class="wvis"><img src="assets/fencescape-cover.jpg" alt="Cover of the FenceScape marketing plan" style="object-position:left center"></div>
+        <div class="wbody">
+          <div class="tags"><span class="tag">Brand strategy</span></div>
+          <h3>A winning pitch and a 12&#8209;month plan</h3>
+          <p class="who"><b>FenceScape</b> · Brand Manager and team lead, capstone · 2025</p>
+          <p class="desc">Surveyed 29 homeowners, then built a five-tactic marketing plan, the visual templates and the pitch deck.</p>
+        </div>
       </article>
-      <article class="card reveal">
-        <span class="tag">Rebrand</span>
-        <h3>Anjoy x Adert</h3>
-        <p class="meta">Digital Marketing Manager · 2021 to 2022</p>
-        <ul>
-          <li>Designed all of the restaurant&rsquo;s social media designs and a full brand kit.</li>
-          <li>Drove steady foot traffic to the business each month.</li>
-        </ul>
-        <p class="result">Grew the account to 20K+ followers.</p>
-      </article>
-      <article class="card reveal vol-card" style="grid-column:1 / -1">
-        <span class="vol-stamp" aria-hidden="true">Volunteer<br>&amp; built<br>from scratch</span>
-        <span class="tag">Volunteer · Startup brand</span>
-        <h3>SalesBuddy</h3>
-        <p class="meta">Social Media Strategist, volunteer · 2025</p>
-        <ul>
-          <li>Created the visual brand identity from scratch for a sales startup.</li>
-          <li>Scripted, edited, and automated its social media marketing.</li>
-        </ul>
-        <p class="result">Grew 2K LinkedIn followers in one month.</p>
+
+      <article class="wcard wide vol reveal">
+        <div class="wvis"><img src="assets/salesbuddy-why-sales.jpg" alt="SalesBuddy carousel cover: Why sales?"></div>
+        <div class="wbody">
+          <span class="vol-stamp" aria-hidden="true">Volunteer<br>&amp; built<br>from scratch</span>
+          <div class="tags"><span class="tag">Volunteer · Startup brand</span></div>
+          <h3>2K LinkedIn followers in one month</h3>
+          <p class="who"><b>SalesBuddy</b> · Social Media Strategist, volunteer · 2025</p>
+          <p class="desc">Created the visual identity from scratch, then scripted, edited and automated the social media.</p>
+        </div>
       </article>
     </div>
 
@@ -473,57 +464,9 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     </div>
   </section>
 
-  <!-- 1. Skills, before experience. One scale for all: bars out of 10, capped at 9.9. Only skills at 7.5 or higher. -->
-  <section id="skills" aria-labelledby="skills-title">
-    <p class="label">Skills</p>
-    <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
-    <div class="skill-grid">
-      <div class="skill-card reveal">
-        <h3>Social media &amp; editing</h3>
-        <div class="bar"><div class="bar-head"><span>Short-form video production</span><b>9.9/10</b></div><div class="track"><div class="fill" data-w="99"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Social media strategy</span><b>9.6/10</b></div><div class="track"><div class="fill" data-w="96"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Organic growth</span><b>9.2/10</b></div><div class="track"><div class="fill" data-w="92"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Content creation and storytelling</span><b>8.8/10</b></div><div class="track"><div class="fill" data-w="88"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Video editing</span><b>8.4/10</b></div><div class="track"><div class="fill" data-w="84"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Creative production (Adobe Creative Cloud)</span><b>8.3/10</b></div><div class="track"><div class="fill" data-w="83"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Social media scheduling and analytics</span><b>8.2/10</b></div><div class="track"><div class="fill" data-w="82"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Graphic design</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Digital design and prototyping</span><b>7.8/10</b></div><div class="track"><div class="fill" data-w="78"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Community management</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Paid social campaigns</span><b>7.5/10</b></div><div class="track"><div class="fill" data-w="75"></div></div></div>
-      </div>
-      <div class="skill-card reveal">
-        <h3>Management</h3>
-        <div class="bar"><div class="bar-head"><span>Brand strategy and management</span><b>9.9/10</b></div><div class="track"><div class="fill" data-w="99"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Brand identity and brand guidelines</span><b>9.0/10</b></div><div class="track"><div class="fill" data-w="90"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Brand positioning</span><b>8.5/10</b></div><div class="track"><div class="fill" data-w="85"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Team leadership (5–10 people)</span><b>8.5/10</b></div><div class="track"><div class="fill" data-w="85"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Go-to-market strategy</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Project management (regional content)</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Cross-functional leadership</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
-      </div>
-    </div>
-    <div class="skill-card reveal" style="margin-top:20px">
-      <h3>Analytics &amp; AI</h3>
-        <div class="bar"><div class="bar-head"><span><span class="accent-script">ai</span> workflow automation</span><b>8.9/10</b></div><div class="track"><div class="fill" data-w="89"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Audience analytics</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div></div>
-        <div class="bar"><div class="bar-head"><span>Performance reporting</span><b>7.6/10</b></div><div class="track"><div class="fill" data-w="76"></div></div></div>
-    </div>
-    <div class="skill-card reveal" style="margin-top:20px">
-      <h3>Soft skills</h3>
-        <div class="bar"><div class="bar-head"><span>Communication and presentation</span><b>8.7/10</b></div><div class="track"><div class="fill" data-w="87"></div></div><p class="bar-note">B2B newsletters and editorial collateral (Beverage Trade Network); pitch presentations (FenceScape).</p></div>
-        <div class="bar"><div class="bar-head"><span>Client consultation</span><b>8.5/10</b></div><div class="track"><div class="fill" data-w="85"></div></div><p class="bar-note">Market research and pitch for FenceScape; skincare consultations at Caryl Baker Visage; freelance client work since 2016.</p></div>
-        <div class="bar"><div class="bar-head"><span>Cross-functional collaboration</span><b>8.3/10</b></div><div class="track"><div class="fill" data-w="83"></div></div><p class="bar-note">Cross-functional team leadership; supervised creative teams at Adert; teamwork on the FenceScape pitch.</p></div>
-        <div class="bar"><div class="bar-head"><span>Analytical problem-solving</span><b>8.2/10</b></div><div class="track"><div class="fill" data-w="82"></div></div><p class="bar-note">Cut client acquisition costs through creative testing at Adert; analysed organic reach at Algurutheme.</p></div>
-        <div class="bar"><div class="bar-head"><span>Adaptability</span><b>8.0/10</b></div><div class="track"><div class="fill" data-w="80"></div></div><p class="bar-note">Adjusted strategy across shifting algorithms over eight years at Algurutheme.</p></div>
-        <div class="bar"><div class="bar-head"><span>Stakeholder and partner management</span><b>7.9/10</b></div><div class="track"><div class="fill" data-w="79"></div></div><p class="bar-note">Managed partnerships in the cosmetics and wellness sectors (Caryl Baker Visage, per LinkedIn).</p></div>
-    </div>
-    <p class="langs" style="margin:16px 0 0;font-size:14px;color:var(--muted)">Languages: English, Hindi, Gujarati</p>
-  </section>
-
-  <!-- 2. Experience: newest first, scrolls back through time -->
-  <section id="experience" aria-labelledby="exp-title">
-    <p class="label">Experience</p>
+  <!-- RÉSUMÉ 1 of 3. Experience: newest first, scrolls back through time -->
+  <section id="resume" aria-labelledby="exp-title">
+    <p class="label mark" id="experience">Résumé · Experience</p>
     <h2 id="exp-title" class="section-title display">Nine years of <em>building</em> brands.</h2>
     <div class="exp">
       <aside class="rail" aria-hidden="true">
@@ -600,9 +543,54 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     </div>
   </section>
 
-  <!-- 3. Education -->
+  <!-- RÉSUMÉ 2 of 3. Skills: no scores. Strongest first in each group; size shows strength. -->
+  <section id="skills" aria-labelledby="skills-title">
+    <p class="label mark">Résumé · Skills</p>
+    <h2 id="skills-title" class="section-title display">What I <em>bring</em> to a brand.</h2>
+
+    <div class="band a reveal">
+      <div class="side">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><rect x="9" y="4" width="26" height="36" rx="5"/><path d="M19 16.5v11l9-5.5z"/></svg>
+        <span class="name">Social media &amp; content</span>
+      </div>
+      <div class="ladder"><span class="s1">Short-form video production</span><span class="s2">Social media strategy</span><span class="s3">Organic growth</span></div>
+      <div class="more"><span class="pill">Content and storytelling</span><span class="pill">Video editing</span><span class="pill">Adobe Creative Cloud</span><span class="pill">Scheduling and analytics</span><span class="pill">Graphic design</span><span class="pill">Digital design and prototyping</span><span class="pill">Community management</span><span class="pill">Paid social</span></div>
+    </div>
+
+    <div class="band b reveal">
+      <div class="side">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M22 4l5 5 7-1 1 7 5 5-5 5-1 7-7-1-5 5-5-5-7 1-1-7-5-5 5-5 1-7 7 1z"/><path d="M16 22l4.5 4.5 8-8.5"/></svg>
+        <span class="name">Brand &amp; management</span>
+      </div>
+      <div class="ladder"><span class="s1">Brand strategy and management</span><span class="s2">Brand identity and guidelines</span><span class="s3">Brand positioning</span></div>
+      <div class="more"><span class="pill">Team leadership, 5–10 people</span><span class="pill">Go-to-market strategy</span><span class="pill">Project management</span><span class="pill">Cross-functional leadership</span></div>
+    </div>
+
+    <div class="band c reveal">
+      <div class="side">
+        <svg viewBox="0 0 44 44" aria-hidden="true"><path d="M6 38h32"/><rect x="9" y="24" width="6" height="10" rx="1.5"/><rect x="19" y="16" width="6" height="18" rx="1.5"/><rect x="29" y="20" width="6" height="14" rx="1.5"/><path d="M33 4v8M29 8h8"/></svg>
+        <span class="name">Analytics &amp; AI</span>
+      </div>
+      <div class="ladder"><span class="s1"><span class="accent-script">ai</span> workflow automation</span></div>
+      <div class="more stack"><span class="s2">Audience analytics</span><span class="s3">Performance reporting</span></div>
+    </div>
+
+    <div class="howhead"><h3>How I work</h3><span>Each one backed by where I did it</span></div>
+    <div class="tiles">
+      <div class="tile reveal"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H10l-4 4v-4H4z"/></svg></div><b>Communication and presentation</b><div class="proof"><span>B2B newsletters</span><span>Pitch presentations</span></div></div>
+      <div class="tile reveal"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-4 3-6 6.5-6s6 2 6.5 6"/><path d="M17 7l1.8 1.8L22 5.5"/></svg></div><b>Client consultation</b><div class="proof"><span>FenceScape research</span><span>Freelance since 2016</span></div></div>
+      <div class="tile reveal"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M10.8 7.2L6.3 15.8M13.2 7.2l4.5 8.6M7.5 18h9"/></svg></div><b>Cross-functional collaboration</b><div class="proof"><span>Creative teams at Adert</span><span>FenceScape team lead</span></div></div>
+      <div class="tile reveal"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5.5 5.5"/></svg></div><b>Analytical problem-solving</b><div class="proof"><span>Creative testing at Adert</span></div></div>
+      <div class="tile reveal"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 0 0-14.500-4.500"/><path d="M5 3v4h4"/><path d="M4 13a8 8 0 0 0 14.500 4.500"/><path d="M19 21v-4h-4"/></svg></div><b>Adaptability</b><div class="proof"><span>8 years of shifting algorithms</span></div></div>
+      <div class="tile reveal"><div class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="12" r="5"/><circle cx="15" cy="12" r="5"/></svg></div><b>Stakeholder and partner management</b><div class="proof"><span>Cosmetics and wellness partners</span></div></div>
+    </div>
+
+    <div class="langs">Languages <i>English</i><i>Hindi</i><i>Gujarati</i></div>
+  </section>
+
+  <!-- RÉSUMÉ 3 of 3. Education -->
   <section aria-labelledby="facts-title">
-    <p class="label" id="facts-title">Education &amp; more</p>
+    <p class="label mark" id="facts-title">Résumé · Education</p>
     <div class="facts">
       <div class="fact reveal">
         <h3>Education</h3>
@@ -631,12 +619,12 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
       <div class="row">
         <span class="k">Email</span>
         <a href="mailto:theraveenapatel@gmail.com">theraveenapatel@gmail.com</a>
-        <button class="mini" type="button" data-copy="theraveenapatel@gmail.com">Copy</button>
+        <button class="mini" type="button" title="Click to copy" data-copy="theraveenapatel@gmail.com">Copy</button>
       </div>
       <div class="row">
         <span class="k">Phone</span>
         <span class="num" style="font-weight:700">343 542 1903</span>
-        <button class="mini" type="button" data-copy="343 542 1903">Copy</button>
+        <button class="mini" type="button" title="Click to copy" data-copy="343 542 1903">Copy</button>
       </div>
       <div class="row">
         <span class="k">LinkedIn</span>
@@ -667,32 +655,45 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   document.querySelectorAll("[data-copy]").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var text = btn.getAttribute("data-copy");
-      var done = function () { status.textContent = "Copied: " + text; };
+      var done = function () {
+        status.textContent = "Copied: " + text;
+        btn.textContent = "Copied!"; btn.classList.add("done");
+        setTimeout(function () { btn.textContent = "Copy"; btn.classList.remove("done"); }, 2000);
+      };
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
       } else { fallback(text); done(); }
     });
   });
 
-  /* Reveal on scroll, skill bars fill when visible */
+  /* Reveal on scroll */
   var revealEls = document.querySelectorAll(".reveal");
-  function fillBars(scope) {
-    scope.querySelectorAll(".fill").forEach(function (f) { f.style.width = f.getAttribute("data-w") + "%"; });
-  }
   if ("IntersectionObserver" in window && !reduce) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          fillBars(e.target);
-          io.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
       });
-    }, { threshold: 0.2 });
+    }, { threshold: 0.15 });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add("in"); });
-    document.querySelectorAll(".fill").forEach(function (f) { f.style.width = f.getAttribute("data-w") + "%"; });
+  }
+
+  /* Case study: opens from its card. Without JS it simply stays open. */
+  var caseBtn = document.getElementById("case-toggle");
+  var casePanel = document.getElementById("case");
+  if (caseBtn && casePanel) {
+    var setCase = function (open) {
+      casePanel.hidden = !open;
+      caseBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      caseBtn.textContent = open ? "Close the case study" : "Read the case study";
+    };
+    setCase(false);
+    caseBtn.addEventListener("click", function () {
+      var open = casePanel.hidden;
+      setCase(open);
+      if (open) casePanel.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "nearest" });
+    });
   }
 
   /* Timeline: highlight the entry in view and update the year rail from present to past */
@@ -721,19 +722,6 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
   window.addEventListener("scroll", updateRail, { passive: true });
   updateRail();
 
-  /* Carousel dots (no page numbers) */
-  var car = document.getElementById("carousel");
-  var dotsWrap = document.getElementById("dots");
-  if (car && dotsWrap) {
-    var slides = car.querySelectorAll(".slide");
-    slides.forEach(function () { dotsWrap.appendChild(document.createElement("span")); });
-    var dots = dotsWrap.querySelectorAll("span");
-    dots[0].classList.add("on");
-    car.addEventListener("scroll", function () {
-      var i = Math.round(car.scrollLeft / (slides[0].offsetWidth + 14));
-      dots.forEach(function (d, k) { d.classList.toggle("on", k === Math.min(i, dots.length - 1)); });
-    }, { passive: true });
-  }
 })();
 </script>
 <script>
