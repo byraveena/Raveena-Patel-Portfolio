@@ -11,12 +11,16 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B1D16'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23E3B04B' stroke-width='2'/%3E%3Ctext x='21' y='42' font-family='Georgia,serif' font-size='28' fill='%23FAF3E6'%3ER%3C/text%3E%3Ctext x='37' y='44' font-family='Georgia,serif' font-style='italic' font-size='24' fill='%23E3B04B'%3Ep%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Montserrat:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Montserrat:wght@500;600;700&display=swap">
 <style>
-@font-face { font-family: "New Romantics"; src: url("assets/fonts/ROMANTIC.TTF") format("truetype"); font-display: swap; }
-.accent-script { font-family: "New Romantics", Georgia, serif; font-weight: 400; color: var(--accent); font-size: 1.2em; line-height: 1; }
+/* Brand kit fonts (Ai By Raveena): Title = Fraunces 72pt Soft, ai = Sparkle Rozha, Body = Poppins, Labels and captions = Montserrat */
+@font-face { font-family: "Fraunces 72pt Soft"; src: url("assets/fonts/Fraunces72Soft-Bold.woff") format("woff"); font-weight: 400 900; font-style: normal; font-display: swap; }
+@font-face { font-family: "Fraunces 72pt Soft"; src: url("assets/fonts/Fraunces72Soft-BoldItalic.woff") format("woff"); font-weight: 400 900; font-style: italic; font-display: swap; }
+@font-face { font-family: "Girly Sunrise"; src: url("assets/fonts/GirlySunrise.woff") format("woff"); font-display: swap; }
+@font-face { font-family: "Sparkle Rozha"; src: url("assets/fonts/SparkleRozha-ai.woff") format("woff"); font-display: swap; }
+.accent-script { font-family: "Sparkle Rozha", "Fraunces 72pt Soft", Georgia, serif; font-weight: 400; color: var(--accent); font-size: 1.08em; line-height: 1; }
 /* Order: hero, stats, work (case study folded in), then résumé: experience, skills, education.
-   Type: Rozha One for headlines and numbers, Montserrat for body, New Romantics for one accent word (brand kit V2). */
+   Type (Ai By Raveena kit): Fraunces 72pt Soft for headlines and numbers, Poppins for body, Montserrat for labels and captions, Sparkle Rozha for the one "ai". */
 
 /* Palette tokens (light) — Brand kit: Deep Autumn */
 :root {
@@ -61,7 +65,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--fg);
-  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   padding-left: max(16px, env(safe-area-inset-left, 0px));
@@ -73,10 +77,11 @@ a { color: var(--accent); }
 a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 
 .wrap { max-width: 1040px; margin: 0 auto; }
-.display { font-family: "Rozha One", Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
+.display { font-family: "Fraunces 72pt Soft", Georgia, "Times New Roman", serif; font-weight: 400; letter-spacing: -0.01em; text-wrap: balance; }
+.label, .tag, .proof span, .langs, .stat .caption, .numbox, .yrs, .vtile .cap, .entry .when, .rail .now-label, .fact h3, footer { font-family: "Montserrat", system-ui, sans-serif; }
 .label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--rust); font-weight: 700; margin: 0 0 14px; }
 .num { font-variant-numeric: tabular-nums; }
-.big-num { font-family: "Rozha One", system-ui, sans-serif; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.big-num { font-family: "Fraunces 72pt Soft", system-ui, sans-serif; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
 
 /* Top bar */
 .topbar {
@@ -96,7 +101,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .hero-photo img { position: relative; z-index: 1; width: 100%; height: auto; display: block; }
 @media (max-width: 860px) { .hero-grid { grid-template-columns: minmax(0, 1fr); } .hero-photo { max-width: 340px; } }
 .hero h1 { font-size: clamp(44px, 8vw, 88px); line-height: 1.02; margin: 0 0 24px; color: var(--fg); }
-.hero h1 em { color: var(--accent); font-style: italic; }
+/* One signature moment: only the hero highlight is handwritten (Girly Sunrise). Every other highlight stays in Fraunces italic. */
+.hero h1 em { color: var(--accent); font-family: "Girly Sunrise", "Fraunces 72pt Soft", cursive; font-style: normal; font-weight: 400; font-size: 1.3em; line-height: .8; letter-spacing: 0; padding-right: .06em; -webkit-text-stroke: .014em currentColor; }
+.hero h1 { margin-bottom: 40px; }
 .hero .role { font-size: 18px; color: var(--fg); margin: 0 0 12px; font-weight: 500; }
 .hero .lede { max-width: 62ch; color: var(--muted); font-size: 18px; margin: 0 0 30px; }
 .actions { display: flex; flex-wrap: wrap; gap: 12px; }
@@ -116,7 +123,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 }
 .stat { padding: 26px 24px; border-right: 1px solid color-mix(in srgb, var(--bg) 18%, transparent); min-width: 0; }
 .stat:last-child { border-right: 0; }
-.stat .value { font-family: "Rozha One", system-ui, sans-serif; font-weight: 700; font-size: clamp(34px, 4.4vw, 48px); line-height: 1; color: var(--stat-val); font-variant-numeric: tabular-nums; }
+.stat .value { font-family: "Fraunces 72pt Soft", system-ui, sans-serif; font-weight: 700; font-size: clamp(34px, 4.4vw, 48px); line-height: 1; color: var(--stat-val); font-variant-numeric: tabular-nums; }
 .stat .caption { font-size: 14px; margin-top: 10px; line-height: 1.4; opacity: 0.85; }
 
 /* Sections */
@@ -136,12 +143,12 @@ section { padding-top: 84px; }
 .band { display: grid; grid-template-columns: 176px minmax(0, .82fr) minmax(0, 1.18fr); background: var(--surface); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; margin-bottom: 16px; }
 .band .side { padding: 22px 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 26px; min-height: 176px; }
 .band .side svg { width: 44px; height: 44px; }
-.band .side .name { font-family: "Rozha One", Georgia, serif; font-size: 23px; line-height: 1.08; }
+.band .side .name { font-family: "Fraunces 72pt Soft", Georgia, serif; font-size: 23px; line-height: 1.08; }
 .band.a .side { background: #5B2245; color: #FAF3E6; }
 .band.b .side { background: #0F4C4F; color: #FAF3E6; }
 .band.c .side { background: #E3B04B; color: #2B1D16; }
 .ladder { padding: 22px 8px 22px 26px; display: flex; flex-direction: column; justify-content: center; gap: 10px; min-width: 0; }
-.ladder > span, .more.stack > span { font-family: "Rozha One", Georgia, serif; line-height: 1.06; display: block; }
+.ladder > span, .more.stack > span { font-family: "Fraunces 72pt Soft", Georgia, serif; line-height: 1.06; display: block; }
 .s1 { font-size: 32px; color: var(--accent); }
 .s2 { font-size: 25px; color: var(--fg); }
 .s3 { font-size: 20px; color: var(--muted); }
@@ -151,7 +158,7 @@ section { padding-top: 84px; }
 .more.stack { flex-direction: column; flex-wrap: nowrap; justify-content: center; align-content: normal; gap: 10px; padding-left: 26px; }
 .pill { font-size: 13px; font-weight: 600; padding: 7px 11px; border-radius: 999px; border: 1px solid var(--line); background: var(--bg); color: var(--fg); }
 .howhead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 14px; margin: 30px 0 14px; }
-.howhead h3 { font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 30px; margin: 0; }
+.howhead h3 { font-family: "Fraunces 72pt Soft", Georgia, serif; font-weight: 400; font-size: 30px; margin: 0; }
 .howhead span { font-size: 14px; color: var(--muted); }
 .tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
 .tile { background: var(--surface); border: 1px solid var(--line); border-radius: 18px; padding: 18px; min-width: 0; }
@@ -172,12 +179,12 @@ section { padding-top: 84px; }
 .win-sub { color: var(--muted); font-size: 18px; max-width: 60ch; margin: 0 0 28px; }
 .split { display: flex; height: 64px; border-radius: 14px; overflow: hidden; border: 1px solid var(--line); }
 .seg { display: flex; align-items: center; justify-content: space-between; padding: 0 20px; color: var(--on-accent); min-width: 0; font-size: 14px; gap: 10px; }
-.seg b { font-family: "Rozha One", Georgia, serif; font-weight: 600; font-size: 26px; }
+.seg b { font-family: "Fraunces 72pt Soft", Georgia, serif; font-weight: 600; font-size: 26px; }
 .seg-a { background: var(--accent); }
 .seg-b { background: var(--teal); }
 .win-stats { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 14px; margin: 24px 0; }
 .ws { border-top: 2px solid var(--saffron); padding-top: 12px; min-width: 0; }
-.ws b { display: block; font-family: "Rozha One", Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: var(--accent); }
+.ws b { display: block; font-family: "Fraunces 72pt Soft", Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1; color: var(--accent); }
 .ws span { display: block; font-size: 14px; color: var(--muted); margin-top: 6px; line-height: 1.4; }
 .how { border-top: 1px solid var(--line); padding: 18px 0 0; margin-top: 8px; }
 .how summary { cursor: pointer; font-weight: 700; color: var(--accent); font-size: 16px; }
@@ -196,7 +203,7 @@ section { padding-top: 84px; }
 .exp { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 36px; }
 .rail { position: sticky; top: 28px; align-self: start; }
 .rail .now-label { font-size: 12px; text-transform: uppercase; letter-spacing: .14em; color: var(--muted); margin: 0 0 6px; }
-.rail .now-year { font-family: "Rozha One", sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rail .now-year { font-family: "Fraunces 72pt Soft", sans-serif; font-weight: 700; font-size: 56px; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
 .rail-track { position: relative; margin-top: 18px; height: 3px; background: var(--line); border-radius: 99px; overflow: hidden; }
 .rail-fill { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--accent); }
 .timeline { list-style: none; margin: 0; padding: 0; position: relative; }
@@ -236,7 +243,7 @@ section { padding-top: 84px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; font-weight: 700; padding: 5px 10px; border-radius: 999px; background: var(--tag-bg); color: var(--tag-fg); }
 .tag.case { background: var(--accent); color: var(--on-accent); }
-.wcard h3 { font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.08; margin: 2px 0 0; color: var(--fg); text-wrap: balance; }
+.wcard h3 { font-family: "Fraunces 72pt Soft", Georgia, serif; font-weight: 400; font-size: 30px; line-height: 1.08; margin: 2px 0 0; color: var(--fg); text-wrap: balance; }
 .wcard.wide h3 { font-size: clamp(30px, 3.8vw, 40px); }
 .who { font-size: 14px; color: var(--muted); font-weight: 500; margin: 0; }
 .who b { color: var(--fg); font-weight: 700; }
@@ -244,19 +251,19 @@ section { padding-top: 84px; }
 .desc { font-size: 15px; line-height: 1.5; margin: 0; }
 .nums { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 2px; }
 .numbox { border: 1px solid var(--line); border-radius: 12px; padding: 8px 12px; font-size: 12px; color: var(--muted); font-weight: 600; }
-.numbox b { display: block; font-family: "Rozha One", Georgia, serif; font-weight: 400; font-size: 22px; color: var(--accent); line-height: 1.1; }
+.numbox b { display: block; font-family: "Fraunces 72pt Soft", Georgia, serif; font-weight: 400; font-size: 22px; color: var(--accent); line-height: 1.1; }
 .wlinks { display: flex; gap: 10px; flex-wrap: wrap; margin-top: auto; padding-top: 8px; }
 .wlinks .btn { text-transform: uppercase; letter-spacing: .1em; font-size: 12px; font-weight: 700; }
 .vtile { box-sizing: border-box; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 6px; }
 .vtile.grow { padding: 0 26px; }
 .growrow { display: flex; align-items: center; gap: 14px; width: 100%; }
-.growrow .from { font-family: "Rozha One", Georgia, serif; font-size: 26px; color: var(--muted); }
-.growrow .to { font-family: "Rozha One", Georgia, serif; font-size: 52px; line-height: 1; color: var(--accent); }
+.growrow .from { font-family: "Fraunces 72pt Soft", Georgia, serif; font-size: 26px; color: var(--muted); }
+.growrow .to { font-family: "Fraunces 72pt Soft", Georgia, serif; font-size: 52px; line-height: 1; color: var(--accent); }
 .growrow .ln { flex: 1; height: 3px; background: var(--accent); position: relative; border-radius: 2px; }
 .growrow .ln::after { content: ""; position: absolute; right: -2px; top: -6px; border-left: 12px solid var(--accent); border-top: 7.5px solid transparent; border-bottom: 7.5px solid transparent; }
 .yrs { display: flex; justify-content: space-between; width: 100%; font-size: 12px; color: var(--muted); font-weight: 600; }
 .vtile.teal { background: #0F4C4F; color: #FAF3E6; }
-.vtile.teal .big { font-family: "Rozha One", Georgia, serif; font-size: 76px; color: #E3B04B; line-height: 1; }
+.vtile.teal .big { font-family: "Fraunces 72pt Soft", Georgia, serif; font-size: 76px; color: #E3B04B; line-height: 1; }
 .vtile.teal .cap { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
 .case-panel { grid-column: 1 / -1; }
 .case-panel[hidden] { display: none; }
@@ -634,7 +641,7 @@ footer { padding-block: 0 40px; font-size: 14px; color: var(--muted); }
     <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
   </section>
 
-  <footer>© 2026 Raveena Patel · Ottawa, Ontario<br><small style="font-size:12px;color:var(--muted)">Accent lettering: New Romantics by Fonts a Go-Go (Jennifer Heinicke)</small></footer>
+  <footer>© 2026 Raveena Patel · Ottawa, Ontario</footer>
 </main>
 
 <script>
